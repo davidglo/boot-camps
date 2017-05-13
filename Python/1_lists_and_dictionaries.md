@@ -88,9 +88,8 @@ gives an "index out of range" error.
 To get the number of items in the list, we have to use "len"
 ```
 print len(testList)
-4
 ```
-This prints "4", as we have four things in the list.
+gives "4", as we have four things in the list.
 
 We can also change the value of an item by setting it equal to a new value
 ```
@@ -98,7 +97,7 @@ testList[0] = 20
 print testList
 [20, 7, 28, 42]
 ```
-In the previous code we looked at pyGlet-drawLine.py, we observe some lists. For example
+The previous code we looked at (pyGlet-drawLine.py), uses some lists. For example
 ```
 self.center1 = [self.width / 2, self.height / 2]    # initialize the centre of the line
 ```
@@ -106,33 +105,40 @@ initializes a list with two elements, self.width/2 and self.height/2, where self
 
 ### Functions of a List
 
-A list comes with lots of useful abilities. You can see the list of abilities in ipython by pressing tab
-
-    $ a.[TAB]
-    a.append   a.count    a.extend   a.index    a.insert   a.pop      a.remove   a.reverse  a.sort
-
-The abilities are provided by functions, for example "append". We can see what the function does by using python's help
-
-    $ help(a.append)
-    
-    Help on built-in function append:
-
-    append(...)
-        L.append(object) -- append object to end
-
-So append is used to add items onto the end of the list. For example
-
-    $ a.append("gerbil")
-    $ a
-    ['cat', 'dog', 'horse', 'fish', 'gerbil']
-
-has added the string "gerbil" onto the end of the list. There are other functions, e.g.
-
-    $ a.remove("dog")
-    $ a
-    ['cat', 'horse', 'fish', 'gerbil']
-
-has removed the string "dog".
+A list comes with lots of useful abilities. You can see the list of abilities in PyCharm by declaring a list as follows
+```
+testList = []
+```
+and then typing
+```
+testList.
+```
+PyCharm should bring up an auto-complete menu, which includes all the functions that are available for lists. The available functions include
+```
+    append    count    extend    index    insert    pop    remove    reverse   sort
+```
+The abilities are provided by functions, for example "append". There's a good dicussion of [how to use these functions at this link](https://www.digitalocean.com/community/tutorials/how-to-use-list-methods-in-python-3). One function which we will use extensively is "append", which is used to add items onto the end of the list. For example
+```
+testList=[]
+```
+declares a blank list. 
+```
+testList.append(27)
+```
+adds "27" to the list, so that 
+```
+print testList
+```
+gives [27]. We can append as many values as we want.
+```
+testList.append(42)
+print testList
+```
+gives [27,42]
+```
+testList.remove(42)
+```
+will remove the value 42 from testList.
 
 ### Looping over a list
 
