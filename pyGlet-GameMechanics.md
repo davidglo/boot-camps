@@ -2,7 +2,7 @@
 
 In this section, you will explore some simple game mechanics available in Python using [pyGlet](https://bitbucket.org/pyglet/pyglet/wiki/Home), which should be available in Anaconda.
 
-pyGlet is a very basic 2d game engine. At this stage, don't worry about all of the details of how it works. As we progress, you will have the opportunity to understand in depth what the various bits are doing. For the moment, we are going to focus on a simple bit of code (call it pyGlet-drawTriangle.py) which draws an equilateral triangle whose location is random. Note that the makeTriangle function works by builds an ordered list of (x,y) vertices, which pyGlet then "draws" by sequentially connecting lines between the vertices. 
+pyGlet is a very basic 2d game engine. At this stage, don't worry about all of the details of how it works. As we progress, you will have the opportunity to understand in depth what the various bits are doing. For the moment, we are going to focus on a simple bit of code (call it pyGlet-drawLine.py) which draws a horizontal line whose location is random. Note that the makeLine function works by building an ordered list of (x,y) vertices. pyGlet then "draws" by placing a connecting line between the vertices. 
  
 pyGlet, like other game engines, runs as an infinite loop, until terminated by a user 
 * On the first pass through the loop, pyGlet calls the \__init__(self) function and then the on_draw() function
@@ -20,87 +20,59 @@ from pyglet.gl import *
 from math import *
 from random import randint
 
-# function to calculate vertices of an equilateral triangle
-def makeTriangle(radius, xcenter, ycenter):
-    vertices = []
-    
-    # specify the first vertex of the triangle
-    angle = 0.0
-    x = radius * cos(angle) + xcenter
+# function makeLine calculates the vertices of a line from some midpoint xcenter, ycenter
+def makeLine(numberOfVertices, distanceToCentre, xcenter, ycenter):
+
+    vertices = []                       #initialize a list of vertices
+
+    x = xcenter + distanceToCentre      # specify the first vertex of the line
+    y = ycenter
     vertices.append(x)
-    y = radius * sin(angle) + ycenter
     vertices.append(y)
 
-    # specify the second vertex of the triangle
-    angle = (2.0/3.0)*pi
-    x = radius * cos(angle) + xcenter
+    x = xcenter - distanceToCentre      # specify the second vertex of the line
+    y = ycenter
     vertices.append(x)
-    y = radius * sin(angle) + ycenter
     vertices.append(y)
 
-    # specify the third vertex of the triangle
-    angle = (4.0/3.0)*pi
-    x = radius * cos(angle) + xcenter
-    vertices.append(x)
-    y = radius * sin(angle) + ycenter
-    vertices.append(y)
+    line = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))  # convert the vertex list to pyGlet vertex format
+    return line
 
-    triangle = pyglet.graphics.vertex_list(3, ('v2f', vertices))
-    return triangle
 
 class graphicsWindow(pyglet.window.Window):
     def __init__(self):
-        super(graphicsWindow, self).__init__()
-        
-        # initialize the centre of the triangle
-        self.center1 = [self.width / 2, self.height / 2]
+        super(graphicsWindow, self).__init__()              # constructor for graphicsWindow class
+
+        self.center1 = [self.width / 2, self.height / 2]    # initialize the centre of the line
 
     def update(self, dt):
-        print "Updating the center of the triangle"
+        print "Updating the center of the line"
         self.center1 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
 
     def on_draw(self):
-        # calculate the list of vertices required to draw the triangle
-        vertexList = makeTriangle(20, self.center1[0], self.center1[1])  # populate the drawList
+        # calculate the list of vertices required to draw the line
+        vertexList = makeLine(2, 20, self.center1[0], self.center1[1])
 
         # use pyGlet commands to draw lines between the vertices
         glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)  # clear the graphics buffer
-        glColor3f(1, 1, 0)  # specify colors & draw
-        vertexList.draw(GL_LINE_LOOP)
+        glColor3f(1, 1, 0)                      # specify colors
+        vertexList.draw(GL_LINE_LOOP)           # draw
+
 
 # this is the main game engine loop
 if __name__ == '__main__':
     window = graphicsWindow()  # initialize a window class
-    pyglet.clock.schedule_interval(window.update,1/2.0)  # tell pyglet the on_draw() & update() timestep
+    pyglet.clock.schedule_interval(window.update, 1 / 2.0)  # tell pyglet the on_draw() & update() timestep
     pyglet.app.run()  # run pyglet
 ```
 
+Get this code running in PyCharm, and make sure it works. Then take some time to look at the code, set some breakpoints, and start to step through the code, in and out of functions, inspecting variables along the way. Use what we learned about debugging to carry out some detective work and get a feel for how the program execution works.  
 
-#Tasks
+See if you can start to make some guesses as to what the code is doing, in particular the code contained in: 
+* \__init__(self) (for now, don't worry about the line super(graphicsWindow, self).__init__())
+* update() 
+* on_draw()
+* makeLine()
 
-There's a few things that you should try and do with this code:
-
-* Get it running in PyCharm
-
-* Figure out how to extend the code to draw more than three circles
-* 
-    here's a hint - think about populating drawList, and then looping over drawList, something like:
-```
-    for element in drawList:
-        glColor3f(1,1,0)
-        element.draw(GL_LINE_LOOP)
-```
-* Rather than randomly generated circles, experiment with different ways of making the circles move. For example, see if you can figure out how to write a function which will make the circles travel in:
-
-    1. Straight lines
-    
-    2. A circular trajectory
-    
-    3. Harmonically, based on how far the circle is displaced from the center of the graphics window
-    
-*  Split out the makeCircle() function so that it lives in a new file called 'simpleShapes.py', and figure out how to construct a module so that can run pyGlet-draw.py by simply including a line which reads "import simpleShapes" 
-
-* Change simpleShapes.py so that rather than calling the makeCircle() function, you have a circle class, which should include data (radius, center positions, and vertex lists), as well as functions (to update position). Now you should be able to modify pyGlet-draw.py to instantiate various circle objects (e.g. circle1 = circle(...)). The position of a circle (e.g., circle1) can then be updated using a command like "circle1.updatePosition()"
- 
-* If you're really motivated, try and write a new class that draws a new shape (e.g., triangle, square, octagon, ellipse, rectangle, etc.)
+In what follows, we will use this simple line drawing code to learn about different aspects of python.
 
