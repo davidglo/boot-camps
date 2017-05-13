@@ -62,7 +62,7 @@ if __name__ == '__main__':
 Get this code running in PyCharm, and make sure it works. Then take some time to look at the code, set some breakpoints, and start to step through the code, in and out of functions, inspecting variables along the way. Use what we learned about debugging to carry out some detective work and get a feel for how the program execution works.  
 
 See if you can start to make some guesses as to what the code is doing, in particular the code contained in: 
-* \__init__(self) (for now, don't worry about the line super(graphicsWindow, self).\__init__())
+* \__init__(self) - for now, don't worry about the line super(graphicsWindow, self).\__init__()
 * update() 
 * on_draw()
 * makeLine()
