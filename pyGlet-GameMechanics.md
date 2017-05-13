@@ -2,7 +2,7 @@
 
 In this section, you will explore some simple game mechanics available in Python using [pyGlet](https://bitbucket.org/pyglet/pyglet/wiki/Home), which should be available in Anaconda.
 
-pyGlet is a very basic game engine, so you shouldn't worry about all of the details at this stage. Later on, there will be an opportunity to understand in more depth what the various bits are doing. For the moment, we are going to focus on some code (call it pyGlet-drawCircles.py) which generates randomly placed circles. Note that the makeCircle function works by actually builds a lists of vertices, which pyGlet then "draws" by sequentially connecting lines between the vertices. The functions in the graphicsWindow class behave as follows:
+pyGlet is a very basic 2d game engine, so you shouldn't worry about all of the details at this stage. Later on, there will be an opportunity to understand in more depth what the various bits are doing. For the moment, we are going to focus on some code (call it pyGlet-drawTriangle.py) which draws an equilateral triangle whose location is random. Note that the makeTriangle function works by builds an ordered list of (x,y) vertices, which pyGlet then "draws" by sequentially connecting lines between the vertices. The functions in the graphicsWindow class behave as follows:
 
 * \__init__(self) is responsible for initializing the important data structures required during draws & updates
 
@@ -18,45 +18,58 @@ from pyglet.gl import *
 from math import *
 from random import randint
 
-def makeCircle(numPoints, radius, xcenter, ycenter):
+# function to calculate vertices of an equilateral triangle
+def makeTriangle(radius, xcenter, ycenter):
     vertices = []
-    for i in range(numPoints):
-        angle = radians(float(i)/numPoints * 360.0)
-        x = radius*cos(angle) + xcenter
-        y = radius*sin(angle) + ycenter
-        vertices += [x,y]
-    circle = pyglet.graphics.vertex_list(numPoints, ('v2f', vertices))
-    return circle
+    
+    # specify the first vertex of the triangle
+    angle = 0.0
+    x = radius * cos(angle) + xcenter
+    vertices.append(x)
+    y = radius * sin(angle) + ycenter
+    vertices.append(y)
+
+    # specify the second vertex of the triangle
+    angle = (2.0/3.0)*pi
+    x = radius * cos(angle) + xcenter
+    vertices.append(x)
+    y = radius * sin(angle) + ycenter
+    vertices.append(y)
+
+    # specify the third vertex of the triangle
+    angle = (4.0/3.0)*pi
+    x = radius * cos(angle) + xcenter
+    vertices.append(x)
+    y = radius * sin(angle) + ycenter
+    vertices.append(y)
+
+    triangle = pyglet.graphics.vertex_list(3, ('v2f', vertices))
+    return triangle
 
 class graphicsWindow(pyglet.window.Window):
     def __init__(self):
         super(graphicsWindow, self).__init__()
-        self.ncircles = 2
-        self.drawList = [0]*self.ncircles
-        self.center1 = [self.width/2,self.height/2]
-        self.center2 = [self.width/2,self.height/2]
+        
+        # initialize the centre of the triangle
+        self.center1 = [self.width / 2, self.height / 2]
 
     def on_draw(self):
-        self.drawList[0] = makeCircle(100, 20, self.center1[0], self.center1[1])  # populate the drawList
-        self.drawList[1] = makeCircle(100, 50, self.center2[0], self.center2[1])
-    
-        glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)  # clear the graphics buffer
-        glColor3f(1,1,0)                        # specify colors & draw
-        self.drawList[0].draw(GL_LINE_LOOP)
-        glColor3f(0.5,0,1)                      # specify colors & draw
-        self.drawList[1].draw(GL_LINE_LOOP)
+        # calculate the list of vertices required to draw the triangle
+        vertexList = makeTriangle(20, self.center1[0], self.center1[1])  # populate the drawList
 
-    def update(self,dt):
-        #print(dt) # time elapsed since last time a draw was called
-        print "Updating the centers of the circles"
-        self.center1 = [window.width/2 + randint(-200,200), window.height/2 + randint(-200,200)]
-        self.center2 = [window.width/2 + randint(-200,200), window.height/2 + randint(-200,200)]
-        print "Finished update"
+        # use pyGlet commands to draw lines between the vertices
+        glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)  # clear the graphics buffer
+        glColor3f(1, 1, 0)  # specify colors & draw
+        vertexList.draw(GL_LINE_LOOP)
+
+    def update(self, dt):
+        print "Updating the center of the triangle"
+        self.center1 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
 
 if __name__ == '__main__':
-    window = graphicsWindow()                                 # initialize a window class
-    pyglet.clock.schedule_interval(window.update, 1/2.0)  # tell pyglet how often it should execute on_draw() & update()
-    pyglet.app.run()                                      # run pyglet
+    window = graphicsWindow()  # initialize a window class
+    pyglet.clock.schedule_interval(window.update,1/2.0)  # tell pyglet the on_draw() & update() timestep
+    pyglet.app.run()  # run pyglet
 ```
 
 
