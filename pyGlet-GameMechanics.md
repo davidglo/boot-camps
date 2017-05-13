@@ -10,7 +10,10 @@ pyGlet is a very basic 2d game engine, so you shouldn't worry about all of the d
 
 * on_draw() is responsible for executing the drawing instructions
  
-* pyglet effectively runs as an infinite loop, until a user terminates it. On the first pass through the loop, it runs __init__() and then on_draw(). Every other pass, it calls update() and then on_draw(). The frequency at which pyglet loops is specified in pyglet.clock.schedule_interval()
+* pyglet, like other game engines, effectively runs as an infinite loop, until a user terminates it. 
+    * On the first pass through the loop, pyGlet calls __init__() and then on_draw()
+    * On every other pass through the loop, pyGlet calls update() and then on_draw() 
+    * The frequency at which pyglet loops is specified in pyglet.clock.schedule_interval()
  
 ```
 import pyglet
