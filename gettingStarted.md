@@ -51,7 +51,7 @@ when you hit 'enter', python should execute & print out the specified text.
 
 A third way to get python to print out 'hello world' utilizes an integrated development environment (IDE). 
 
-Integrated development environments (or IDEs) offer software developers a customizable and integrated set of tools for managing software projects, writing code, debugging, and unit testing. IDEs allow developers to efficiently manage large and complex software projects, which they would struggle with if they were to do it the 'old-fashioned' way - e.g., using text editors and print statements for debugging.
+IDEs offer software developers a customizable and integrated set of tools for managing software projects, writing code, debugging, and unit testing. IDEs allow developers to efficiently manage large and complex software projects, which they would struggle with if they were to do it the 'old-fashioned' way - e.g., using text editors and print statements for debugging.
 
 Major software development firms have shown (over and over again) that developer efficiency increases dramatically using IDEs. When it comes to scientific software development, where you often find yourself working on legacy code which is the product of several developers over the years (e.g., generations of PhDs and post-docs), the visual debugger provided by an IDE (combined with powerful integrated search tools) can save massive amounts of time understanding how previous contributors have organized the code and the order in which various bits of the program are executed.
 
