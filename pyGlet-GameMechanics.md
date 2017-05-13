@@ -53,6 +53,10 @@ class graphicsWindow(pyglet.window.Window):
         # initialize the centre of the triangle
         self.center1 = [self.width / 2, self.height / 2]
 
+    def update(self, dt):
+        print "Updating the center of the triangle"
+        self.center1 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
+
     def on_draw(self):
         # calculate the list of vertices required to draw the triangle
         vertexList = makeTriangle(20, self.center1[0], self.center1[1])  # populate the drawList
@@ -62,10 +66,7 @@ class graphicsWindow(pyglet.window.Window):
         glColor3f(1, 1, 0)  # specify colors & draw
         vertexList.draw(GL_LINE_LOOP)
 
-    def update(self, dt):
-        print "Updating the center of the triangle"
-        self.center1 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
-
+# this is the main game engine loop
 if __name__ == '__main__':
     window = graphicsWindow()  # initialize a window class
     pyglet.clock.schedule_interval(window.update,1/2.0)  # tell pyglet the on_draw() & update() timestep
