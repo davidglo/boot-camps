@@ -21,7 +21,8 @@ from math import *
 from random import randint
 
 # function makeLine calculates the vertices of a line from some midpoint xcenter, ycenter
-def makeLine(numberOfVertices, distanceToCentre, xcenter, ycenter):
+def makeLine(distanceToCentre, xcenter, ycenter):
+    numberOfVertices = 2                # specify the number of vertices we need for the shape
     vertices = []                       # initialize a list of vertices
     x = xcenter + distanceToCentre      # specify the first vertex of the line
     y = ycenter
@@ -46,7 +47,7 @@ class graphicsWindow(pyglet.window.Window):
 
     def on_draw(self):
         # calculate the list of vertices required to draw the line
-        vertexList = makeLine(2, 20, self.center1[0], self.center1[1])
+        vertexList = makeLine(20, self.center1[0], self.center1[1])
         # use pyGlet commands to draw lines between the vertices
         glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)  # clear the graphics buffer
         glColor3f(1, 1, 0)                      # specify colors
