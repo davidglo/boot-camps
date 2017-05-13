@@ -1,18 +1,16 @@
 # Simple Game Mechanics in Python
 
-In this section, you will explore some simple game mechanics available in Python using [pyGlet](https://bitbucket.org/pyglet/pyglet/wiki/Home), which you will need to install either using MacPorts, Brew, or Anaconda.
+In this section, you will explore some simple game mechanics available in Python using [pyGlet](https://bitbucket.org/pyglet/pyglet/wiki/Home), which should be available in Anaconda.
 
-There is an excellent & very easy tuturial on basic pyGlet structure which is [available at this link](http://simeonfranklin.com/talk/pyglet/slides.html#slide-1), which you should work your way through. Don't worry about making the game suggested in the final slide of the tutorial. Work through the example below instead.
-
-Here is some code, call it pyGlet-drawCircles.py, that generates randomly placed circles. Note that the makeCircle function actually builds a lists of vertices, which pyGlet then "draws" by sequentially connecting lines between the vertices. The functions in the graphicsWindow class behave as follows:
+pyGlet is a very basic game engine, so you shouldn't worry about all of the details at this stage. Later on, there will be an opportunity to understand in more depth what the various bits are doing. For the moment, we are going to focus on some code (call it pyGlet-drawCircles.py) which generates randomly placed circles. Note that the makeCircle function works by actually builds a lists of vertices, which pyGlet then "draws" by sequentially connecting lines between the vertices. The functions in the graphicsWindow class behave as follows:
 
 * \__init__(self) is responsible for initializing the important data structures required during draws & updates
 
+* update() is responsible for executing instructions required to update the positions of objects
+
 * on_draw() is responsible for executing the drawing instructions
  
-* update() is responsible for executing instructions required to update the positions of objects
- 
-* when pyglet runs, it calles on_draw() and update() at the frequency specified in pyglet.clock.schedule_interval()
+* when pyglet runs, it calls update() and then on_draw() at the frequency specified in pyglet.clock.schedule_interval()
  
 ```
 import pyglet
