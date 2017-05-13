@@ -1,6 +1,6 @@
 ## Basic Python
 ### Objectives
-1. Understand the basic syntax and datastructures in Python 3.5:
+1. Understand the basic syntax and datastructures in Python:
     1. Atomic data types: floats, ints, complex, strings.
     2. Collections: lists, list comprehensions, dictionaries, generators.
     3. Control structures: if, for, while, functions, lambda functions.
