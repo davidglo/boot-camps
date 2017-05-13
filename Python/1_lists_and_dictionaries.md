@@ -1,18 +1,15 @@
 
 # Containers - Lists and Dictionaries
 
-First, lets start python. We will do everything using ipython, which provides a nice interactive python shell. We start ipython using the command
+Writing a program involves creating and manipulating data, which are held in variables. For example, we've used variables before
 
-    $ ipython
-
-Writing a program involves creating and manipulating data, which are held in variables. For example, you have probably used strings and numbers, for example
-
-    $ a = 42
-    $ b = 65
-    $ a + b
-    107
-
-prints out 107. Equally
+```
+meaningOfLife = 42.0
+mysticalSign = 19.0
+keyToTheMeaningOfLife = meaningOfLife/mysticalSign
+print keyToTheMeaningOfLife
+```
+prints out 2.2105. Another example of using variables could also involve strings. For example:
 
     $ a = "hello "
     $ b = "world"
@@ -25,53 +22,64 @@ Typing and working with variables one-by-one like this is easy, but would be ver
 
 ## Lists
 
-Lists, which are also called arrays or vectors, provide a simple list of variables. In python, we create lists using square brackets
-
-    $ a = [ "cat", "dog", "horse", "fish" ]
-
-This has created a list containing four strings, "cat", "dog", "horse" and "fish". To access each item we also use square brackets
-
-    $ a[0]
-    'cat'
-
-prints "cat", as it accesses the first item in the list.
-
-    $ a[1]
-    'dog'
-
-prints "dog", as it accesses the second item in the list. As you can probably guess, a[3] will print "fish" as it accesses the fourth item
-
-    $ a[3]
-    'fish'
-
-In python, you can also work from the back of the list, e.g.
-
-    $ a[-1]
-    'fish'
-
-prints the last item,
-
-    $ a[-2]
-    'horse'
-
+Lists, which are also called arrays or vectors, provide a simple list of variables. In python, we create lists using square brackets. For example
+```
+testList = [14, 7, 28, 42]
+```
+would initialize a list with four elements. To access items in the list we use square brackets:
+```
+print testList[0]
+14
+```
+and
+```
+print testList[1]
+7
+```
+and
+```
+print testList[2]
+28
+```
+and
+```
+print testList[3]
+42
+```
+Note that element "0" of the list in fact denotes the first element of the list. In python, you can also work from the back of the list, e.g.
+```
+print testList[-1]
+42
+```
+printing the last item.
+```
+print testList[-2]
+28
+```
 prints the second to last item etc. If you access an item that doesn't exist, then you get an error.
-
-    $ a[4]
-
+```
+print testList[4]
+```
 gives an "index out of range" error.
 
 To get the number of items in the list, we have to use "len"
-
-    $ len(a)
-    4
-
+```
+print len(testList)
+4
+```
 This prints "4", as we have four things in the list.
 
 We can also change the value of an item by setting it equal to a new value
-
-    $ a[0] = 20
-    $ a
-    [20, 2, 3, 4]
+```
+testList[0] = 20
+print testList
+[20, 7, 28, 42]
+```
+In the previous code we looked at pyGlet-drawLine.py, we observe some lists. For example
+```
+self.center1 = [self.width / 2, self.height / 2]    # initialize the centre of the line
+```
+initializes a list with two elements, self.width/2 and self.height/2, where self.width & self.height are variables that we specify in code.
 
 ### Functions of a List
 
