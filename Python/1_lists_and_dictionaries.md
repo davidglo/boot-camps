@@ -9,15 +9,21 @@ mysticalSign = 19.0
 keyToTheMeaningOfLife = meaningOfLife/mysticalSign
 print keyToTheMeaningOfLife
 ```
-gives 2.2105. Another example of using variables could also involve strings. For example:
+gives 
+```
+2.2105
+```
+Another example of using variables could also involve strings. For example:
 ```
 a = "hello "
 b = "world"
 print a + b
 ```
-gives "hello world" (note we had to add an extra space after "hello").
-
-Typing and working with variables one-by-one like this is easy, but would be very time-consuming and prone to error if you have a program that uses thousands or millions of variables. Containers allow you to group variables together. The simplest container is a list.
+gives 
+```
+hello world
+```
+Note here how we had to add an extra space after "hello". Typing and working with variables one-by-one like this is easy, but would be very time-consuming and prone to error if you have a program that uses thousands or millions of variables. Containers allow you to group variables together. The simplest container is a list.
 
 ## Lists
 
@@ -28,34 +34,52 @@ testList = [14, 7, 28, 42]
 would initialize a list with four elements. To access items in the list we use square brackets:
 ```
 print testList[0]
+```
+gives
+```
 14
 ```
 and
 ```
 print testList[1]
+```
+gives
+```
 7
 ```
 and
 ```
 print testList[2]
+```
+gives
+```
 28
 ```
 and
 ```
 print testList[3]
+```
+gives
+```
 42
 ```
 Note that element "0" of the list in fact denotes the first element of the list. In python, you can also work from the back of the list, e.g.
 ```
 print testList[-1]
+```
+gives
+```
 42
 ```
 printing the last item.
 ```
 print testList[-2]
+```
+gives
+```
 28
 ```
-prints the second to last item etc. If you access an item that doesn't exist, then you get an error.
+printing the second to last item, etc. If you access an item that doesn't exist, then you get an error.
 ```
 print testList[4]
 ```
