@@ -11,7 +11,7 @@ Tuesday 16th (DRG)
 * 10:00 Introduction and Overview
 * 10:15 Getting Started with Python
     * [A simple Python Program](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/gettingStarted.md)
-* 10:45 A quick guide to debugging Python in PyCharm (DRG)
+* 10:45 A quick how-to for debugging in PyCharm (DRG)
 * 11:00 Learning more about Python
     * [A Python Framework for Simple Game Mechanics](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/pyGlet-GameMechanics.md)
     * [Basic Python features](https://github.com/davidglo/boot-camps/blob/2016-TMCS-software/Outlines/python-outline.md#python-outline)
