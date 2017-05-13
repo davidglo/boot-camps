@@ -4,9 +4,9 @@ In this section, you will explore some simple game mechanics available in Python
 
 pyGlet is a very basic 2d game engine, so you shouldn't worry about all of the details at this stage. Later on, there will be an opportunity to understand in more depth what the various bits are doing. For the moment, we are going to focus on some code (call it pyGlet-drawTriangle.py) which draws an equilateral triangle whose location is random. Note that the makeTriangle function works by builds an ordered list of (x,y) vertices, which pyGlet then "draws" by sequentially connecting lines between the vertices. 
  
-pyglet, like other game engines, effectively runs as an infinite loop, until a user terminates it. 
-* On the first pass through the loop, pyGlet calls __init__() and then on_draw()
-* On every other pass through the loop, pyGlet calls update() and then on_draw() 
+pyGlet, like other game engines, runs as an infinite loop, until terminated by a user 
+* On the first pass through the loop, pyGlet calls the __init__() function and then the on_draw() function
+* On every other pass through the loop, pyGlet calls the update() function and then on_draw() function
 * The frequency at which pyglet loops is specified in pyglet.clock.schedule_interval()
 
 pyGlet's key functions behave as follows:
