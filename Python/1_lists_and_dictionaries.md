@@ -10,13 +10,12 @@ keyToTheMeaningOfLife = meaningOfLife/mysticalSign
 print keyToTheMeaningOfLife
 ```
 gives 2.2105. Another example of using variables could also involve strings. For example:
-
-    $ a = "hello "
-    $ b = "world"
-    $ a + b
-    'hello world'
-
-prints out "hello world" (note we had to add an extra space after "hello").
+```
+a = "hello "
+b = "world"
+print a + b
+```
+gives "hello world" (note we had to add an extra space after "hello").
 
 Typing and working with variables one-by-one like this is easy, but would be very time-consuming and prone to error if you have a program that uses thousands or millions of variables. Containers allow you to group variables together. The simplest container is a list.
 
