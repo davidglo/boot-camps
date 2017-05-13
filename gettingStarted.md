@@ -128,5 +128,5 @@ print '\n'
 print 'thats all folks'
 ```
 
-
+Next we'll learn how to use PyCharm's debugging features to go examine execution flow of this simple example code.
 
