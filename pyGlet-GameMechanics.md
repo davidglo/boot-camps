@@ -22,15 +22,15 @@ from random import randint
 
 # function makeLine calculates the vertices of a line from some midpoint xcenter, ycenter
 def makeLine(numberOfVertices, distanceToCentre, xcenter, ycenter):
-    vertices = []                       #initialize a list of vertices
+    vertices = []                       # initialize a list of vertices
     x = xcenter + distanceToCentre      # specify the first vertex of the line
     y = ycenter
-    vertices.append(x)
-    vertices.append(y)
+    vertices.append(x)                  # append the x value to the vertex list
+    vertices.append(y)                  # append the y value to the vertex list
     x = xcenter - distanceToCentre      # specify the second vertex of the line
     y = ycenter
-    vertices.append(x)
-    vertices.append(y)
+    vertices.append(x)                  # append the x value to the vertex list
+    vertices.append(y)                  # append the y value to the vertex list
 
     line = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))  # convert the vertex list to pyGlet vertex format
     return line
