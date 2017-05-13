@@ -22,14 +22,11 @@ from random import randint
 
 # function makeLine calculates the vertices of a line from some midpoint xcenter, ycenter
 def makeLine(numberOfVertices, distanceToCentre, xcenter, ycenter):
-
     vertices = []                       #initialize a list of vertices
-
     x = xcenter + distanceToCentre      # specify the first vertex of the line
     y = ycenter
     vertices.append(x)
     vertices.append(y)
-
     x = xcenter - distanceToCentre      # specify the second vertex of the line
     y = ycenter
     vertices.append(x)
@@ -38,11 +35,9 @@ def makeLine(numberOfVertices, distanceToCentre, xcenter, ycenter):
     line = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))  # convert the vertex list to pyGlet vertex format
     return line
 
-
 class graphicsWindow(pyglet.window.Window):
     def __init__(self):
         super(graphicsWindow, self).__init__()              # constructor for graphicsWindow class
-
         self.center1 = [self.width / 2, self.height / 2]    # initialize the centre of the line
 
     def update(self, dt):
@@ -52,12 +47,10 @@ class graphicsWindow(pyglet.window.Window):
     def on_draw(self):
         # calculate the list of vertices required to draw the line
         vertexList = makeLine(2, 20, self.center1[0], self.center1[1])
-
         # use pyGlet commands to draw lines between the vertices
         glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)  # clear the graphics buffer
         glColor3f(1, 1, 0)                      # specify colors
         vertexList.draw(GL_LINE_LOOP)           # draw
-
 
 # this is the main game engine loop
 if __name__ == '__main__':
