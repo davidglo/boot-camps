@@ -89,6 +89,8 @@ Functions provide a way of packaging code into reusable and easy-to-use componen
 ```
 def meaningOfLifeCalculator(meaning, sign):
     key = meaning/sign
+    print 'keyToTheMeaningOfLife = ', key
+    print 'keyToTheMeaningOfLife * ', sign, ' = ', key * sign
     return key
 ```
 Now we can quickly calculate the meaning of life for any mysticalSign or any meaningOfLife, simply by calling meaningOfLifeCalculator as follows
@@ -102,6 +104,8 @@ Let's get this working in PyCharm by pasting the following code into our editor.
 ```
 def meaningOfLifeCalculator(meaning, sign):
     key = meaning/sign
+    print 'keyToTheMeaningOfLife = ', key
+    print 'keyToTheMeaningOfLife * ', sign, ' = ', key * sign
     return key
 
 print 'hello world'
