@@ -9,7 +9,7 @@ mysticalSign = 19.0
 keyToTheMeaningOfLife = meaningOfLife/mysticalSign
 print keyToTheMeaningOfLife
 ```
-prints out 2.2105. Another example of using variables could also involve strings. For example:
+gives 2.2105. Another example of using variables could also involve strings. For example:
 
     $ a = "hello "
     $ b = "world"
