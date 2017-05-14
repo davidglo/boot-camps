@@ -353,13 +353,6 @@ Note that string.join has added a space between each letter. Using help() we can
     $ s
     'hello'
 
-## Exercise
-
-If you haven't already, clone this repository to somewhere appropriate:
-
-    $ git clone --branch 2015-05-oxford --single-branch  https://github.com/mikeoconnor0308/boot-camps.git
-    $ cd boot-camps/Python
-
 ### Exercise 1a
 
 Here is a script, [1a/encode.py](1a/encode.py) which contains a dictionary for converting the alphabet to Morse code, and a string that must be converted (quite quickly!).
