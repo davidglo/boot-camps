@@ -26,7 +26,7 @@ class graphicsWindow(pyglet.window.Window):
         # clear the graphics buffer
         glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)  
         
-        # now we will calculate the list of vertices required to draw the first triangle
+        # now we will calculate the list of vertices required to draw the FIRST triangle
         numberOfVertices = 3        # specify the number of vertices we need for the shape
         radius = 20                 # specify the radius of each point from the center
         xcenter = self.center1[0]   # specify xcenter
@@ -48,7 +48,7 @@ class graphicsWindow(pyglet.window.Window):
         glColor3f(color[lineColor][0], color[lineColor][1], color[lineColor][2])  # openGL color specification
         vertexList.draw(GL_LINE_LOOP)           # draw
 
-        # now we will calculate the list of vertices required to draw the second triangle
+        # now we will calculate the list of vertices required to draw the SECOND triangle
         numberOfVertices = 3        # specify the number of vertices we need for the shape
         radius = 20                 # specify the radius of each point from the center
         xcenter = self.center2[0]   # specify xcenter
