@@ -21,7 +21,9 @@ class graphicsWindow(pyglet.window.Window):
         self.center1 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
 
     def on_draw(self):
-
+        # clear the graphics buffer
+        glClear(pyglet.gl.GL_COLOR_BUFFER_BIT) 
+        
         # now we will calculate the list of vertices required to draw the triangle
         numberOfVertices = 3        # specify the number of vertices we need for the shape
         radius = 20                 # specify the radius of each point from the center
@@ -40,7 +42,6 @@ class graphicsWindow(pyglet.window.Window):
         vertexList = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))
 
         # now use pyGlet commands to draw lines between the vertices
-        glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)  # clear the graphics buffer
         lineColor = 'hotpink'                   # choose color
         glColor3f(color[lineColor][0], color[lineColor][1], color[lineColor][2])  # openGL color specification
         vertexList.draw(GL_LINE_LOOP)           # draw
