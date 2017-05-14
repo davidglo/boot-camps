@@ -88,7 +88,11 @@ and then typing
 ```
 testList.
 ```
-PyCharm should bring up an auto-complete menu, which includes all the functions that are available for lists. The available functions include
+PyCharm should bring up an auto-complete menu, which includes all the functions that are available for lists. Alternatively, you could also type a line in your code which reads
+```
+help(testList) 
+```
+Put a breakpoint at the line, step over it, and then inspect the console output. Either way you use - auto-complete or help(), you will see that the available functions for a list are as follows:
 ```
     append    count    extend    index    insert    pop    remove    reverse   sort
 ```
@@ -121,13 +125,14 @@ will remove the value 42 from testList.
 
 You can iterate over all items in a list using a loop, for example
 
-    $ for i in range(0, len(a)):
-    $     print( a[i] )
+    $ testList = [14, 7, 28, 42]
+    $ for i in range(0, len(testList)):
+    $     print( testList[i] )
     
-    cat
-    horse
-    fish
-    gerbil
+    14
+    7
+    28
+    42
 
 This can be useful, for example, for adding together two sets of numbers;
 
@@ -170,57 +175,56 @@ You can nest lists as deeply as you want, creating a multidimensional matrix.
 
 ## Dictionaries (A.K.A Associative Arrays)
 
-Lists let you store lots of variables, and to access them by their location in the list. However, there are lots of times when you want to store lots of variables, but access them using more complex relationships. One example is a dictionary (which are often called 'associative arrays' in other programming languages). These let you store variables and access them using a key. 
+Associative Arrays (which are called 'dictionaries in python) are one of the really nice features of many object oriented languages. For certain tasks, they make your life a lot easier. Whereas lists let you store lots of variables, accessing them requires you to know their location in the list. However, there are lots of times when you want to store lots of variables, but access them using more complex relationships. Associative arrays let you store variables and access them using a key. 
 
 Dictionaries in python are represented using curly brakets
 
-    $ a = { "cat" : "mieow", "dog" : "woof", "horse" : "neigh" }
+    $ a = { "cat" : "meeow", "dog" : "woof", "horse" : "neigh" }
 
-Here I am storing four key-value pairs. I am storing the value "mieow", and saying that this is accessed using the key "cat". 
+Here I am storing four key-value pairs. I am storing the value "meeow", and saying that this is accessed using the key "cat". 
 
-    $ a["cat"]
-    'mieow'
+    $ print a["cat"]
+    'meeow'
 
 Similarly, I have stored the value "woof", and have said that this is accessed using the key "dog"
 
-    $ a["dog"]
+    $ print a["dog"]
     'woof'
 
-Like lists, dictionaries also come with a lot of useful functions, which we can show using the TAB key in ipython
+Like lists, dictionaries also come with a lot of useful functions, which we can show using the autocomplete functionality in PyCharm 
 
-    $ a.[TAB]
-    a.clear       a.get         a.iteritems   a.keys        a.setdefault  a.viewitems   
-    a.copy        a.has_key     a.iterkeys    a.pop         a.update      a.viewkeys    
-    a.fromkeys    a.items       a.itervalues  a.popitem     a.values      a.viewvalues  
+    $ a.
 
-and that we can get help with using help()
+or else via the help function.
 
-    $ help(a.keys)
-    Help on built-in function keys:
+    $ help(a)
 
-    keys(...)
-        D.keys() -> list of D's keys
+Either way we can inspect the functions available for processing data in lists:
 
-The keys() function thus returns a list of all of the keys
+    clear       get         iteritems   keys        setdefault  viewitems   
+    copy        has_key     iterkeys    pop         update      viewkeys    
+    fromkeys    items       itervalues  popitem     values      viewvalues  
 
-    $ a.keys()
+There's a nice overview of [dictionary methods at this link] (https://docs.python.org/2/library/stdtypes.html#mapping-types-dict). One particularly useful method is the keys() function, which returns a list of all of the keys
+
+    $ print a.keys()
     ['horse', 'dog', 'cat']
 
 while the values() function returns the list of all of the values
 
-    $ a.values()
+    $ print a.values()
     ['neigh', 'woof', 'mieow']
 
 We can change items in the dictionary by setting them equal to a new value
 
     $ a["dog"] = "bark"
-    $ a
+    $ print a
     {'cat': 'mieow', 'dog': 'bark', 'horse': 'neigh'}
 
 We can also use this to add new items to the dictionary
 
     $ a["fish"] = "bubble"
-    $ a
+    $ print a
     {'cat': 'mieow', 'dog': 'bark', 'fish': 'bubble', 'horse': 'neigh'}
 
 ### Looping over a dictionary
@@ -229,27 +233,34 @@ As the keys() function returns the list of all keys in a dictionary, the best wa
 
     $ keys = a.keys()
     $ for i in range(0,len(keys)):
-    $     print("%s == %s" % (keys[i], a[keys[i]]))
+    $     print keys[i], " == ", a[keys[i]]
     
     horse == neigh
     dog == bark
     fish == bubble
     cat == mieow
 
-You could print them out in alphabetical order by using the sort() function of a list to sort the keys before looping
+You could print them out in alphabetical order by using the sort() function of a list to sort the keys before looping. Have a look at the methods available for manipulating the keys by again using either PyCharm's autocomplete
 
-    $ keys.[TAB]
-    keys.append   keys.extend   keys.insert   keys.remove   keys.sort     
-    keys.count    keys.index    keys.pop      keys.reverse  
+    $ keys.
+    
+or else via the help function
+
+    $ help(keys)
+ 
+Either way, we see the following methods
+    
+    append   extend   insert   remove   sort     
+    count    index    pop      reverse  
 
     $ keys.sort()
-    $ keys
+    $ print keys
     ['cat', 'dog', 'fish', 'horse']
 
     $ for i in range(0,len(keys)):
     $     print("%s == %s" % (keys[i], a[keys[i]]))
 
-    cat == mieow
+    cat == meeow
     dog == bark
     fish == bubble
     horse == neigh
@@ -259,13 +270,13 @@ You could print them out in alphabetical order by using the sort() function of a
 Like lists, dictionaries can contain any type of data, and you can also nest dictionaries and lists inside each other.
 
     $ a = { "cat" : 5, "dog" : ["walk", "feed", "sleep"], "fish" : {"type" : "goldfish"} }
-    $ a["cat"]
+    $ print a["cat"]
     5
-    $ a["dog"]
+    $ print a["dog"]
     ['walk', 'feed', 'sleep']
-    $ a["dog"][1]
+    $ print a["dog"][1]
     'feed'
-    $ a["fish"]["type"]
+    $ print a["fish"]["type"]
     'goldfish'
 
 You can also create the above dictionary item-by-item
@@ -274,7 +285,7 @@ You can also create the above dictionary item-by-item
     $ a["cat"] = 5
     $ a["dog"] = [ "walk", "feed", "sleep" ]
     $ a["fish"] = { "type" : "goldfish" }
-    $ a
+    $ print a
     {'cat': 5, 'dog': ['walk', 'feed', 'sleep'], 'fish': {'type': 'goldfish'}}
 
 
@@ -283,11 +294,11 @@ You can also create the above dictionary item-by-item
 Finally, we will finish this session by noting that strings are actually lists. A string is a list container of letters.
 
     $ a = "hello world"
-    $ len(a)
+    $ print len(a)
     11
-    $ a[0]
+    $ print a[0]
     'h'
-    $ a[-1]
+    $ print a[-1]
     'd'
 
 We can loop over all letters in a string using
@@ -317,11 +328,11 @@ You can also create a string from a list of letters. For this, you need to impor
 
     $ import string
     $ a = ['h', 'e', 'l', 'l', 'o']
-    $ a
+    $ print a
     ['h', 'e', 'l', 'l', 'o']
 
     $ s = string.join(a)
-    $ s
+    $ print s
     'h e l l o'
 
 Note that string.join has added a space between each letter. Using help() we can see how to remove this space
