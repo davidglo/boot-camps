@@ -80,7 +80,7 @@ See if you can start to make some guesses as to what the code is doing, in parti
 * \__init__(self) - for now, don't worry about the line super(graphicsWindow, self).\__init__()
 * update() 
 * on_draw()
-* makeLine()
+* makeTriangle()
 
 In what follows, we will use this simple line drawing code to learn about different aspects of python.
 
