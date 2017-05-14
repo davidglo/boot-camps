@@ -29,33 +29,49 @@ would initialize a list with four elements. To access items in the list we use s
     $ print testList[0]
     14
 and
+
     $ print testList[1]
     7
+
 and
+
     $ print testList[2]
     28
+
 and
+
     $ print testList[3]
     42
-Note that element "0" of the list in fact denotes the first element of the list. In python, you can also work from the back of the list, e.g.
+
+Note that element "0" of the list in fact denotes the first element of the list. In python, you can also work from the back of the list
+
     $ print testList[-1]
     42
+
 printing the last item.
+
     $ print testList[-2]
     28
+
 printing the second to last item, etc. If you access an item that doesn't exist, then you get an error.
+
     $ print testList[4]
+
 gives an "index out of range" error.
 
 To get the number of items in the list, we have to use "len"
+
     $ print len(testList)
     4
+
 as we have four things in the list.
 
 We can also change the value of an item by setting it equal to a new value
+
     $ testList[0] = 20
     $ print testList
     [20, 7, 28, 42]
+
 The previous code we looked at (pyGlet-drawLine.py), uses some lists. For example
 ```
 self.center1 = [self.width / 2, self.height / 2]    # initialize the centre of the line
