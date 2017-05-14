@@ -417,6 +417,6 @@ Once you've figured out how to do this, play around with a few different colors 
 
 ### Excercise 1c
 
-Extend your code to draw more than one triangle, each with a different color.
+See if you can extend your code to draw more than one triangle, each with a different color.
 
 # [Up](python_and_good_programming_practice.md) [Next](2_functions_and_modules.md)
