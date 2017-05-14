@@ -385,7 +385,7 @@ Let's return to the simple line drawing program we looked at earlier. The script
     
 There's lots of redundant code in this function, which we can tighten up using what we've learned about lists. Your job is to use PyCharm and its debugging facilities to step through this code, figure out what it's doing, and then refactor it utilizing what you've learned about lists and loops. You should be able to make significant improvements, cleaning up the rendundancy and making much more compact code which is more elegant and less error-prone. This is the sort of task that one often finds oneself having to carry out in the course of a software dev project: explicit code can often be cleaned up and made more transparent through the canny use of lists and dictionaries.
 
-If you are really stuck, then there is an example completed script available to read in [drawTriangle-refactor1.py](drawTriangle-refactor1).
+If you are really stuck, then there is an example completed script available to read in [drawTriangle-refactor1.py]( boot-camps/drawTriangle-refactor1.py).
 
 ### Exercise 1b
 
