@@ -412,8 +412,7 @@ Your job now is to formulate a nested structure of dictionaries/lists, which all
 
     ...YOUR CODE HERE...
 
-    # function to calculate vertices of an equilateral triangle
-    def makeTriangle(radius, xcenter, ycenter):
+    class graphicsWindow(pyglet.window.Window):
 
 Once you've figured out how to do this, play around with a few different colors for your triangle. It should be as easy as simply editing the string which indicates color. Feel free to get creative. [The link at this page gives lots of different examples of various colors in '3f' format](http://prideout.net/archive/colors.php#Floats). If you are really stuck, then there is an example completed script available to read in [drawTriangle-refactor2.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle-refactor2.py).
 
