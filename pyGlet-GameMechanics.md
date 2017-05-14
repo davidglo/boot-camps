@@ -20,7 +20,7 @@ from pyglet.gl import *
 from math import *
 from random import randint
 
-# function makeLine calculates the vertices of a line from some midpoint xcenter, ycenter
+# function makeLine calculates the vertices of a line by stepping horizontally from midpoint xcenter, ycenter
 def makeLine(distanceToCentre, xcenter, ycenter):
     numberOfVertices = 2                # specify the number of vertices we need for the shape
     vertices = []                       # initialize a list of vertices
@@ -40,6 +40,7 @@ class graphicsWindow(pyglet.window.Window):
     def __init__(self):
         super(graphicsWindow, self).__init__()              # constructor for graphicsWindow class
         self.center1 = [self.width / 2, self.height / 2]    # initialize the centre of the line
+        help(self.center1)
 
     def update(self, dt):
         print "Updating the center of the line"
