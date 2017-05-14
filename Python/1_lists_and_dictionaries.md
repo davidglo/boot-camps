@@ -10,89 +10,52 @@ Writing a program involves creating and manipulating data, which are held in var
     2.2105
 
 Another example of using variables could also involve strings. For example:
-```
-a = "hello "
-b = "world"
-print a + b
-```
-gives 
-```
-hello world
-```
+
+    $ a = "hello "
+    $ b = "world"
+    $ print a + b
+    hello world
+
 Note here how we had to add an extra space after "hello". Typing and working with variables one-by-one like this is easy, but would be very time-consuming and prone to error if you have a program that uses thousands or millions of variables. Containers allow you to group variables together. The simplest container is a list.
 
 ## Lists
 
 Lists, which are also called arrays or vectors, provide a simple list of variables. In python, we create lists using square brackets. For example
-```
-testList = [14, 7, 28, 42]
-```
+
+    $ testList = [14, 7, 28, 42]
+
 would initialize a list with four elements. To access items in the list we use square brackets:
-```
-print testList[0]
-```
-gives
-```
-14
-```
+
+    $ print testList[0]
+    14
 and
-```
-print testList[1]
-```
-gives
-```
-7
-```
+    $ print testList[1]
+    7
 and
-```
-print testList[2]
-```
-gives
-```
-28
-```
+    $ print testList[2]
+    28
 and
-```
-print testList[3]
-```
-gives
-```
-42
-```
+    $ print testList[3]
+    42
 Note that element "0" of the list in fact denotes the first element of the list. In python, you can also work from the back of the list, e.g.
-```
-print testList[-1]
-```
-gives
-```
-42
-```
+    $ print testList[-1]
+    42
 printing the last item.
-```
-print testList[-2]
-```
-gives
-```
-28
-```
+    $ print testList[-2]
+    28
 printing the second to last item, etc. If you access an item that doesn't exist, then you get an error.
-```
-print testList[4]
-```
+    $ print testList[4]
 gives an "index out of range" error.
 
 To get the number of items in the list, we have to use "len"
-```
-print len(testList)
-```
-gives "4", as we have four things in the list.
+    $ print len(testList)
+    4
+as we have four things in the list.
 
 We can also change the value of an item by setting it equal to a new value
-```
-testList[0] = 20
-print testList
-[20, 7, 28, 42]
-```
+    $ testList[0] = 20
+    $ print testList
+    [20, 7, 28, 42]
 The previous code we looked at (pyGlet-drawLine.py), uses some lists. For example
 ```
 self.center1 = [self.width / 2, self.height / 2]    # initialize the centre of the line
