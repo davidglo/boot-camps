@@ -100,19 +100,21 @@ declares a blank list.
 ```
 testList.append(27)
 ```
-adds "27" to the list, so that 
-```
-print testList
-```
-gives [27]. We can append as many values as we want.
-```
-testList.append(42)
-print testList
-```
-gives [27,42]
-```
-testList.remove(42)
-```
+adds "27" to the list, i.e., 
+
+    $ print testList
+    [27]
+
+We can append as many values as we want.
+
+    $ testList.append(42)
+    $ print testList
+    [27,42]
+
+We can also remove values from a list. For example
+
+    $ testList.remove(42)
+
 will remove the value 42 from testList.
 
 ### Looping over a list
