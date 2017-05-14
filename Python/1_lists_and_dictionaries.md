@@ -355,7 +355,7 @@ Note that string.join has added a space between each letter. Using help() we can
 
 ### Exercise 1a
 
-Let's return to the simple line drawing program we looked at earlier. The script is available as [simpleLine.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle.py). For the purposes of this exercise, we will focus on the function makeLine(), which contains the following:
+Let's return to the simple line drawing program we looked at earlier. The script is available as [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle.py). For the purposes of this exercise, we will focus on the function makeLine(), which contains the following:
 
     # function to calculate vertices of an equilateral triangle
     def makeTriangle(radius, xcenter, ycenter):
