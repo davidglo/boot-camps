@@ -389,31 +389,34 @@ If you are really stuck, then there is an example completed script available to 
 
 ### Exercise 1b
 
-You have just received the Morse code message in the script [1b/decode.py](1b/decode.py). You need to decode this message back to English.
+Now we are going to play around a little bit with dictionaries and nesting. The particular bit of code which we are going to focus on is the one that specifies the color of the object that is drawn
 
-    letter_to_morse = {'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', 
-                       'g':'--.', 'h':'....', 'i':'..', 'j':'.---', 'k':'-.-', 'l':'.-..', 'm':'--', 
-                       'n':'-.', 'o':'---', 'p':'.--.', 'q':'--.-', 'r':'.-.', 's':'...', 't':'-',
-                       'u':'..-', 'v':'...-', 'w':'.--', 'x':'-..-', 'y':'-.--', 'z':'--..',
-                       '0':'-----', '1':'.----', '2':'..---', '3':'...--', '4':'....-',
-                       '5':'.....', '6':'-....', '7':'--...', '8':'---..', '9':'----.',
-                       ' ':'/' }
+    glColor3f(1, 1, 0)  # specify colors
 
-    message = "... --- ... / .-- . / .... .- ...- . / .... .. - / .- -. / .. -.-. . -... . .-. --. / .- -. -.. / -. . . -.. / .... . .-.. .--. / --.- ..- .. -.-. -.- .-.. -.--"
+This code specifies in OpenGL RGB format what color OpenGL should use for the lines it's about to draw. Each entry is a float ('3f' means 'three floats') specifies the amount of R, the amount of G, and the amount of B, where the possible value of each entry can range from 0 to 1. You can [construct lots of different colors using this simple format](http://prideout.net/archive/colors.php#Floats).
 
-Use what you have learned about lists and dictionaries to loop through Morse letters in the Morse code message, and convert them back to English. Note that "letter_to_morse" is a dictionary that goes from letters to Morse code. You will need to first invert this dictionary to let you look up the letter from the Morse code (if you need help, look at [1b/example/invert.py](1b/example/invert.py)). Morse code letters are separated by spaces. Use ipython TAB and help() to find a function that will split the message into letters.
+What we're going to do now is use a dictionary to make the arguments to glColor3f() more human readable. For example, it would enable us to choose our aesthetic a lot quicker if we could specify a color by entering code that looked something like
 
-If you are really stuck, then there is an example completed script available to read in [1b/example/decode.py](1b/example/decode.py).
+    lineColor = 'hotpink'
+    glColor3f(color[lineColor][0], color[lineColor][1], color[lineColor][2]) # specify colors
 
-### Extension
+As you can see, when we want to change colors, we only have to change the value of a single variable. So for example if we want blue (or red or green or yellow or sienna or whatever), we simply have to make a small modification along the lines of:
 
-If you have time, combine your completed "encode.py" and "decode.py" scripts into a single script that converts a message from English to Morse code, and then converts it back again into English.
+    lineColor = 'blue'
 
-## Version Control
+Your job now is to formulate a nested structure of dictionaries/lists, which allow us to specify colors as I've written above, so that we can change color by simply changing a single word. To do this, you will have to declare the relevant data structures in a location that enables it to be seen "globally" - i.e., acknowledged by everything in our code. We'll learn more about this as we go on, but for the moment I'm going to help you: the location when working with PyGlet should be as follows:
 
-When you have finished, commit all of your changes to your Git repository.
+    from random import randint
 
-    $ git commit -am "...commit message..."
-    $ git push
+    ...YOUR CODE HERE...
+
+    # function to calculate vertices of an equilateral triangle
+    def makeTriangle(radius, xcenter, ycenter):
+
+Once you've figured out how to do this, play around with a few different colors for your triangle. It should be as easy as simply editing the string which indicates color. Feel free to get creative. [The link at this page gives lots of different examples of various colors in '3f' format](http://prideout.net/archive/colors.php#Floats). If you are really stuck, then there is an example completed script available to read in [drawTriangle-refactor2.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle-refactor2.py).
+
+### Excercise 1c
+
+Extend your code to draw more than one triangle, each with a different color.
 
 # [Up](python_and_good_programming_practice.md) [Next](2_functions_and_modules.md)
