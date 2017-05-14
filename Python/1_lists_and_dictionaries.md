@@ -3,16 +3,12 @@
 
 Writing a program involves creating and manipulating data, which are held in variables. For example, we've used variables before
 
-```
-meaningOfLife = 42.0
-mysticalSign = 19.0
-keyToTheMeaningOfLife = meaningOfLife/mysticalSign
-print keyToTheMeaningOfLife
-```
-gives 
-```
-2.2105
-```
+    $ meaningOfLife = 42.0
+    $ mysticalSign = 19.0
+    $ keyToTheMeaningOfLife = meaningOfLife/mysticalSign
+    $ print keyToTheMeaningOfLife
+    $ 2.2105
+
 Another example of using variables could also involve strings. For example:
 ```
 a = "hello "
