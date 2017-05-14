@@ -383,7 +383,7 @@ Let's return to the simple line drawing program we looked at earlier. The script
         triangle = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))
         return triangle
     
-There's lots of redundant code in this function, which we can tighten up using what we've learned about lists. Your job is to refactor this code to utilize a list, and thereby clean up the rendundancy, making for much more compact and less error-prone code. This is the sort of task that one often finds oneself having to carry out in the course of a software dev project: explicit code can often be cleaned up and made more elegant through the canny use of lists and dictionaries.
+There's lots of redundant code in this function, which we can tighten up using what we've learned about lists. Your job is to refactor this code utilizing what you've learned about lists and loops, and thereby clean up the rendundancy, making for much more compact and less error-prone code. This is the sort of task that one often finds oneself having to carry out in the course of a software dev project: explicit code can often be cleaned up and made more elegant through the canny use of lists and dictionaries.
 
 If you are really stuck, then there is an example completed script available to read in [1a/example/encode.py](1a/example/encode.py).
 
