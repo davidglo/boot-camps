@@ -355,33 +355,35 @@ Note that string.join has added a space between each letter. Using help() we can
 
 ### Exercise 1a
 
-Let's return to the simple line drawing program we looked at earlier. The script is available as [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle.py). For the purposes of this exercise, we will focus on the function makeLine(), which contains the following:
+Let's return to the simple line drawing program we looked at earlier. The script is available as [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle.py). For the purposes of this exercise, we will focus on the following code:
 
-    # function to calculate vertices of an equilateral triangle
-    def makeTriangle(radius, xcenter, ycenter):
-        numberOfVertices = 3                        # specify the number of vertices we need for the shape
-        vertices = []                               # initialize a list of vertices
+        # now we will calculate the list of vertices required to draw the triangle
+        numberOfVertices = 3        # specify the number of vertices we need for the shape
+        radius = 20                 # specify the radius of each point from the center
+        xcenter = self.center1[0]   # specify xcenter
+        ycenter = self.center1[1]   # specify ycenter
+        vertices = []  # initialize a list of vertices
 
-        angle = 0.0                                 # specify the first vertex of the triangle
+        angle = 0.0               # specify the first vertex of the triangle (x,y values)
         x = radius * cos(angle) + xcenter
         y = radius * sin(angle) + ycenter
-        vertices.append(x)                          # append the x value to the vertex list
-        vertices.append(y)                          # append the y value to the vertex list
+        vertices.append(x)  # append the x value to the vertex list
+        vertices.append(y)  # append the y value to the vertex list
 
-        angle = (2.0 / 3.0) * pi                    # specify the second vertex of the triangle
+        angle = (2.0 / 3.0) * pi  # specify the second vertex of the triangle (x,y values)
         x = radius * cos(angle) + xcenter
         y = radius * sin(angle) + ycenter
-        vertices.append(x)                          # append the x value to the vertex list
-        vertices.append(y)                          # append the y value to the vertex list
+        vertices.append(x)  # append the x value to the vertex list
+        vertices.append(y)  # append the y value to the vertex list
 
-        angle = (4.0 / 3.0) * pi                    # specify the third vertex of the triangle
+        angle = (4.0 / 3.0) * pi  # specify the third vertex of the triangle (x,y values)
         x = radius * cos(angle) + xcenter
         y = radius * sin(angle) + ycenter
-        vertices.append(x)                          # append the x value to the vertex list
-        vertices.append(y)                          # append the y value to the vertex list
+        vertices.append(x)  # append the x value to the vertex list
+        vertices.append(y)  # append the y value to the vertex list
 
-        triangle = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))
-        return triangle
+        # convert the vertices list to pyGlet vertices format
+        vertexList = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))
     
 There's lots of redundant code in this function, which we can tighten up using what we've learned about lists. Your job is to use PyCharm and its debugging facilities to step through this code, figure out what it's doing, and then refactor it utilizing what you've learned about lists and loops. You should be able to make significant improvements, cleaning up the rendundancy and making much more compact code which is more elegant and less error-prone. This is the sort of task that one often finds oneself having to carry out in the course of a software dev project: explicit code can often be cleaned up and made more transparent through the canny use of lists and dictionaries.
 
