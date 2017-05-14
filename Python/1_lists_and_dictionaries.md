@@ -7,7 +7,7 @@ Writing a program involves creating and manipulating data, which are held in var
     $ mysticalSign = 19.0
     $ keyToTheMeaningOfLife = meaningOfLife/mysticalSign
     $ print keyToTheMeaningOfLife
-    $ 2.2105
+    2.2105
 
 Another example of using variables could also involve strings. For example:
 ```
