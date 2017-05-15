@@ -1,5 +1,5 @@
 import pyglet
-from pyglet.gl import *
+import pyglet.gl
 import math
 from random import randint
 
@@ -22,7 +22,7 @@ class graphicsWindow(pyglet.window.Window):
 
     def on_draw(self):
         # clear the graphics buffer
-        glClear(pyglet.gl.GL_COLOR_BUFFER_BIT) 
+        pyglet.gl.glClear(pyglet.gl.GL_COLOR_BUFFER_BIT) 
         
         # now we will calculate the list of vertices required to draw the triangle
         numberOfVertices = 3        # specify the number of vertices we need for the shape
@@ -43,8 +43,8 @@ class graphicsWindow(pyglet.window.Window):
 
         # now use pyGlet commands to draw lines between the vertices
         lineColor = 'hotpink'                   # choose color
-        glColor3f(color[lineColor][0], color[lineColor][1], color[lineColor][2])  # openGL color specification
-        vertexList.draw(GL_LINE_LOOP)           # draw
+        pyglet.gl.glColor3f(color[lineColor][0], color[lineColor][1], color[lineColor][2])  # openGL color specification
+        vertexList.draw(pyglet.gl.GL_LINE_LOOP)           # draw
 
 
 # this is the main game engine loop
