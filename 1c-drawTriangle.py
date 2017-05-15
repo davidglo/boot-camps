@@ -46,6 +46,5 @@ class graphicsWindow(pyglet.window.Window):
 if __name__ == '__main__':
     window = graphicsWindow()  # initialize a window class
     pyglet.clock.schedule_interval(window.update, 1 / 2.0)  # tell pyglet the on_draw() & update() timestep
-    # pyglet.clock.schedule_interval(window.update, 1 / 30.0)  # tell pyglet the on_draw() & update() timestep
     pyglet.app.run()  # run the infinite pyglet loop
     
