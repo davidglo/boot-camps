@@ -100,9 +100,7 @@ We now get better documentation when using help()
     DATA
         color = {'blue': [0.0, 0.0, 1.0], 'green': [0.0, 1.0, 0.0], 'hotpink':...
 
-    ## Exercise
-
-### Exercise 3
+### Exercise
 
 Edit your two-triangle drawing code and the associated color module to add documentation strings as indicated above.
 
