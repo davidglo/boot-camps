@@ -35,44 +35,40 @@ An "object" is a particular instantiation of a "class" definition. Sticking with
 
 Ok, enough philosophy for now. The idea of putting together member data and member functions which are important for certain classes of objects is called "Encapsulation". It's a key idea of object orientated programming, and refers to the practice of hiding the data in a Class, with the net result that only the functions which are defined as part of the Class can read or write (change) the data. Not only can this actually result in simpler to use and easier-to-read code which maps onto the problem we're actually trying to solve, but it also enforces practices that are much less likely to get abused by others (or ourselves in the future) when we're coding.
 
-For example, take a look the code required to make a very basic "triangle" class:
-
-    import pyglet
-    import math
+For example, take a look the code [triangleClass-v1.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/triangleClass-v1.py) required to make a very basic "triangle" class:
 
     class triangleClass:
 
         def __init__(self,ID,color,xcenter,ycenter,rad):
-            """ construct a basic triangle """
+            """ initialize a triangle """
             self.ID = ID
             self.color = color
             self.x = xcenter
             self.y = ycenter
             self.radius = rad
+            # self.xvelocity = 0
+            # self.yvelocity = 0
 
         def setCentreCoordinates(self,xcenter,ycenter):
-            """ set the center coordinates of the triangle """
+            """ set the x,y coordinates of the triangle """
             self.x = xcenter
             self.y = ycenter
 
         def getColor(self):
+            """ return the color of the triangle """
             return self.color
 
-        def calculateTriangleVertices(self):
-            """ function to calculate the vertex list required to draw an equilateral triangle """
-            numberOfVertices = 3  # specify the number of vertices we need for the shape
-            vertices = []  # initialize a list of vertices
+        def getRadius(self):
+            """ return the radius of the triangle """
+            return self.radius
 
-            for i in range(0, numberOfVertices):
-                angle = i * (2.0 / 3.0) * math.pi  # specify a vertex of the triangle (x,y values)
-                x = self.radius * math.cos(angle) + self.x
-                y = self.radius * math.sin(angle) + self.y
-                vertices.append(x)  # append the x value to the vertex list
-                vertices.append(y)  # append the y value to the vertex list
+        def getX(self):
+            """ return the x coordinate of the triangle """
+            return self.x
 
-            # convert the vertices list to pyGlet vertices format for the first triangle & return this list
-            vertexList = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))
-            return vertexList
+        def getY(self):
+            """ return the y coordinate of the triangle """
+            return self.y
 
 This piece of Python contains lots of new ideas. Before we explore them, feel free to use ipython to check the help for this class definition.
 
@@ -80,91 +76,119 @@ This piece of Python contains lots of new ideas. Before we explore them, feel fr
     $ from triangleClass import triangleClass
     $ help(triangleClass)
 
-"triangleClass", is a example of a Class. Classes are used to package up functions with associated data. As you can see in the help(), we can only see the functions defined in the class. There are two functions, `__init__` (always enclosed on either side by two underscores), which is used to construct a new Object of type GuessGame, and "guess" which is used to guess the secret. As you can see, the first argument to each of these functions is "self". "self" is a special variable that is used by the Class to gain access to the data hidden within.
+"triangleClass", is a example of a Class. Classes are used to package up functions with associated data. As you can see in the help(), we can only see the functions defined in the class. There are two functions, `__init__` (always enclosed on either side by two underscores), which is used to construct a new Object of type GuessGame, and "guess" which is used to guess the secret. As you can see, the first argument to each of these functions is "self". "self" is a special variable that is used by the Class to gain access to the data hidden within. 
 
-Lets look again at the source for GuessGame (in [guessgame.py](guessgame.py))
+Lets look again at the source for [triangleClass-v1.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/triangleClass-v1.py)
 
-    """A simple guessing game"""
+    class triangleClass:
+
+        def __init__(self,ID,color,xcenter,ycenter,rad):
+            """ initialize a triangle """
+            self.ID = ID
+            self.color = color
+            self.x = xcenter
+            self.y = ycenter
+            self.radius = rad
+            # self.xvelocity = 0
+            # self.yvelocity = 0
+
+        def setCentreCoordinates(self,xcenter,ycenter):
+            """ set the x,y coordinates of the triangle """
+            self.x = xcenter
+            self.y = ycenter
+
+        def getColor(self):
+            """ return the color of the triangle """
+            return self.color
+
+        def getRadius(self):
+            """ return the radius of the triangle """
+            return self.radius
+
+        def getX(self):
+            """ return the x coordinate of the triangle """
+            return self.x
+
+        def getY(self):
+            """ return the y coordinate of the triangle """
+            return self.y
+
+Here you can see that the keyword "class" is used to define a new class (in this case, called GuessGame). Within the class you can see defined the two functions, `__init__` and "guess". The `__init__` function is special, and is called the "constructor". It must be present in all classes, and constructors are used in all object orientated programming languages. The job of the constructor is to define how to create an object of the class, i.e. how to initialise the data contained within the class. In general, data is either passed in explicitly, or else set to sensible defaults. This data initialization is often called the 'instantiation' of the class: this is what programmers mean when they refer to "objects" - i.e., objects are the "instantiations" of a particular class definition (think of Plato!). 
+
+In this case, you can see that the constructor takes as input six data members: "self", which is always required for any member function in a class definition, "ID", which is a string that will hold the triangle's ID, "color", which holds a string for the color we want our triangle to be, "xcenter" & "ycenter", which give the center of the triangle, and "rad", which gives the distance of each triangle vertex to the center point.  the number of wrong guesses made to date. Note that these data memember variables start with two underscores. This is the way you tell Python that the variables are private to the class, and cannot be modified unless modifications occur through member functions on the class. If you look at other class definitions, you will see that class data members often start with two underscores. This is not strictly necessary, but is good programming practice to ensure that all class variable names in python are private. We will avoid using the underscores here, simply to make the code easier to read, but I definitely recommend it as good practice.
+
+The constructor takes as input the data which we pass in, and then defines variables which are attached to "self", via the full stop, e.g. "self.ID", "self.color", "self.x", etc. "self" is a special variable that is only available within the functions of the class, and provides access to the hidden data of the class. You can see that "self" is also used by the other functions in the class - setCentreCoordinates(), getColor(), getRadius(), getX(), and getY().
+
+An instantiation of a particular class is called an object. We can construct as many instances (objects) of a class as we want, and each will have its own "self" and its own set of hidden variables. 
+
+So, how do we use the triangleClass in practice - e.g., in our [drawTwoTriangles-refactor2.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles-refactor2.py) code? Let's have a look
+
+First we must make drawTwoTriangles-refactor2.py aware of our class definition:
+
+    from triangleClass import triangleClass
     
-    class GuessGame:
-        """A simple guess the secret game"""
-        def __init__(self, secret):
-            """Construct a game with the passed secret"""
-            self.__secret = secret
-            self.__nguesses = 0   # the number of guesses
+To initialize two triangles, we then add the following immediately after:
+
+    # initialize the triangles that we will be drawing
+    triangle1 = triangleClass('triangle1', 'blue',    0, 0, 20)
+    triangle2 = triangleClass('triangle2', 'hotpink', 0, 0, 20)
     
-        def guess(self, value):
-            """See if the passed value is equal to the secret"""
-    
-            if self.__nguesses >= 3:
-                print( "Sorry, you have run out of guesses." )
-    
-            elif value == self.__secret:
-                print( "Well done - you have won the game!" )
-                return True
-            else:
-                print( "Wrong answer. Try again!" )
-                self.__nguesses += 1  # increase the number of wrong guesses
-                return False
+This is key - it's where we "instantiate" an ojbect from a class defintion. We're saying: 
+*"initialize an object triangle1 from class triangleClass, using 'triangle1', 'blue',    0, 0, 20 as arguments to the triangleClass constructor"
+*"initialize an object triangle2 from class triangleClass, using 'triangle2', 'hotpink', 0, 0, 20 as arguments to the triangleClass constructor"
 
-Here you can see that the keyword "class" is used to define a new class (in this case, called GuessGame). Within the class you can see defined the two functions, `__init__` and "guess". The `__init__` function is special, and is called the "constructor". It must be present in all classes, and constructors are used in all object orientated programming languages. The job of the constructor is to define how to create an object of the class, i.e. how to initialise the data contained within the class. This data initialization is often called the 'instantiation' of the class: this is what programmers mean when they refer to "objects" - i.e., objects are the instantiations of a particular class definition. In this case, you can see that the constructor specifies two data members: "__secret", which will hold the secret to be guessed, and "__nguesses", which holds the number of wrong guesses made to date. Note that these data memember variables start with two underscores. This is the way you tell Python that the variables are private to the class, and cannot be modified unless modifications occur through member functions on the class. While not strictly necessary, it is good programming practice to ensure that all class variable names in python are private, and start with two underscores.
+It's worth putting breakpoints at these lines, and the hovering over 'triangle1' and 'triangle2' after we've instantiated them as objects. this will give you a great feel for how PyCharm thinks about objects - i.e., as a collection of data.
 
-Note that the variables are defined as attached to "self", via the full stop, e.g. "self.__secret". "self" is a special variable that is only available within the functions of the class, and provides access to the hidden data of the class. You can see that "self" is used by the "guess" function to check the passed guess against "self.__secret", and to increase the value of "self.__nguesses" if the guess is wrong.
+So how do we use these objects? through the "dot operator" as follows:
 
-An instantiation of a particular class is called an object. We can construct as many instances (objects) of a class as we want, and each will have its own "self" and its own set of hidden variables. For example, in what follows we have three different GuessGame objects, named game1, game2, and game3. Key to the practice of object-oriented programming is the notion of "Abstraction". One of the best definitions of abstraction I’ve ever read states: “An abstraction denotes the essential characteristics of an object that distinguish it from all other kinds of object and thus provide crisply defined conceptual boundaries, relative to the perspective of the viewer.” (G. Booch, in "Object-Oriented Design With Applications", Benjamin/Cummings, Menlo Park, California, 1991). In this case, objects are defined by their secret, the number of guesses, and functions that help keep track of whether we have won or lost the game;
+In `__init__()` we can swap out 
 
-    $ ipython
-    $ from guessgame import GuessGame
-    $ game1 = GuessGame("orange")
-    $ game2 = GuessGame("carrot")
-    $ game3 = GuessGame("apricot")
-    $ game1.guess("apricot")
-    Wrong answer. Try again!
-    Out[4]: False
-    $ game3.guess("apricot")
-    Well done - you have won the game!
-    Out[6]: True
+    self.center1 = [self.width / 2, self.height / 2]  # initialize the centre of the triangle
+    self.center2 = [self.width / 2, self.height / 2]  # initialize the centre of the triangle
+ 
+by using the member function setCentreCoordinates to which each triangle object has access:
+ 
+    triangle1.setCentreCoordinates(self.width / 2, self.height / 2)
+    triangle2.setCentreCoordinates(self.width / 2, self.height / 2)
 
-(Note that we have used the "from X import Y" syntax in Python to import only GuessGame from [guessgame.py](guessgame.py). This allows us to write "game1 = GuessGame("orange")" instead of "game1 = guessgame.GuessGame("orange")".)
+You should use a breakpoint with PyCharm's 'step into' function in order to see how the above code works. We can do a similar thing in update(), replacing 
 
-Note that we don't need to pass "self" ourselves to the class functions. "self" is passed implicitly by Python when we construct an object of the class, or when we call a function of the object.
+    self.center1 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
+    self.center2 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
 
-## Exercise
+with the appropriate triangleClass member functions. Do this now.
 
-### Exercise 4
+In on_draw(), we can swap 
 
-Edit your [morse.py](3/example/morse.py) script create a class "MorseTranslator" by packaging together the functions "encodeToMorse" and "decodeFromMorse" with the variables "letter_to_morse" and "morse_to_letter".
+    vertexList = calculateTriangleVertices(radius,self.center1[0],self.center1[1])
 
-Make sure that you document your class, e.g. by documenting the `__init__` function you will have to write, and also by documenting the class, as in the above GuessGame class in [guessgame.py](guessgame.py).
+by using member functions on triangleClass to query the values of radius, X, and Y on triangle1:
 
-When you have finished, test that the Morse code produced by your class is correctly translated back to English, e.g.
+    vertexList = calculateTriangleVertices(triangle1.getRadius(),triangle1.getX(),triangle1.getY())
 
-    $ ipython
-    $ from morse import MorseTranslator
-    $ translator = MorseTranslator()
-    $ message = "hello world"
-    $ translator.decode( translator.encode(message) ) == message
-    True
+In the example above, we have constructed two different triangleClass objects, named triangle1 and triangle2. Key to the practice of object-oriented programming is the notion of "Abstraction". One of the best definitions of abstraction I’ve ever read states: “An abstraction denotes the essential characteristics of an object that distinguish it from all other kinds of object and thus provide crisply defined conceptual boundaries, relative to the perspective of the viewer.” (G. Booch, in "Object-Oriented Design With Applications", Benjamin/Cummings, Menlo Park, California, 1991). In this case, objects are defined by their data: color, id, x & y position, and radius.
 
-If you get really stuck, you can take a look at the completed example in [4/example/morse.py](4/example/morse.py).
+Note that we don't need to pass "self" ourselves to the member class functions. "self" is passed implicitly by Python when we construct an object of the class, or when we call a function of the object.
 
-### Extension
+## Exercise 1
 
-The act of encoding and decoding a message to and from Morse code is very similar to encrypting and decrypting a message. Try to write a new class, "Encryptor", that can encrypt a message using an "encrypt" function, and decrypt the message using a "decrypt" function. 
+Add the calculateTriangleVertices() to the triangleClass definition, and rework your code to utilize it. Hint: you should not need to pass anything into the function when it is called, because all the relevant data should now be included in the triangleClass definition. This should start to make your
 
-When you have finished, test that your Encryptor can decrypt its own encrypted messages, e.g.
+If you are really stuck, there is an example script here.
 
-    $ ipython
-    $ from encryptor import Encryptor
-    $ encryptor = Encryptor()
-    $ message = "hello world"
-    $ encryptor.decrypt( encryptor.encrypt(message) ) == message
-    True
+## Exercise 2
 
-If you get really stuck, then you can take a look at the completed example in [4/example/encryptor.py](4/example/encryptor.py)
+Instead of triangles which are randomly placed each frame, let's allow the triangles to make simple linear transits across the screen, updating their positions from their last position. If they hit the wall, let them reflect off the wall by reversing the sign of the appropriate velocity component. This is the kind of thing that is made vastly easier by using an object oriented approach. 
 
-Make sure that you commit your edited script to your Git repository.
+Hints: 
+* to do this, we will need to add a velocity data member to the triangleClass definition 
+* we will also probably need a function which sets the initial velocity, called from `__init__`
+* we will also need a function that updates the coordinates based on the velocity values, and reverses the appropriate velocity components if the triangle reaches a wall
+* to really get the sense of motion, you will need to change the screen refresh rate. At present, it's set to 1/2 seconds; however, the human eye does not typically see motion as continuous until we have refresh rate close to 1/30 seconds.
 
-    $ git commit -am "...commit message..."
-    $ git push
+If you are really stuck, there is an example script here.
+
+## Exercise 3
+
+put your objects in lists, and loop over the lists...
 
