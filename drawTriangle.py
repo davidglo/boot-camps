@@ -1,6 +1,6 @@
 import pyglet
 from pyglet.gl import *
-from math import *
+import math
 from random import randint
 
 
@@ -25,20 +25,20 @@ class graphicsWindow(pyglet.window.Window):
         vertices = []  # initialize a list of vertices
 
         angle = 0.0               # specify the first vertex of the triangle (x,y values)
-        x = radius * cos(angle) + xcenter
-        y = radius * sin(angle) + ycenter
+        x = radius * math.cos(angle) + xcenter
+        y = radius * math.sin(angle) + ycenter
         vertices.append(x)  # append the x value to the vertex list
         vertices.append(y)  # append the y value to the vertex list
 
-        angle = (2.0 / 3.0) * pi  # specify the second vertex of the triangle (x,y values)
-        x = radius * cos(angle) + xcenter
-        y = radius * sin(angle) + ycenter
+        angle = (2.0 / 3.0) * math.pi  # specify the second vertex of the triangle (x,y values)
+        x = radius * math.cos(angle) + xcenter
+        y = radius * math.sin(angle) + ycenter
         vertices.append(x)  # append the x value to the vertex list
         vertices.append(y)  # append the y value to the vertex list
 
-        angle = (4.0 / 3.0) * pi  # specify the third vertex of the triangle (x,y values)
-        x = radius * cos(angle) + xcenter
-        y = radius * sin(angle) + ycenter
+        angle = (4.0 / 3.0) * math.pi  # specify the third vertex of the triangle (x,y values)
+        x = radius * math.cos(angle) + xcenter
+        y = radius * math.sin(angle) + ycenter
         vertices.append(x)  # append the x value to the vertex list
         vertices.append(y)  # append the y value to the vertex list
 
