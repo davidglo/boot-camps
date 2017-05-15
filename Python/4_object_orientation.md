@@ -194,5 +194,31 @@ If you are really stuck, the example scripts are here:
 
 ## Exercise 3c
 
-put your objects in lists, and loop over the lists...
+One of the really powerful things about working with objects is that lists can hold objects. So for example, our previous triangle instantiations, which we wrote as
+
+    # initialize the triangles that we will be drawing
+    triangle1 = triangleClass('triangle1', 'blue',    0, 0, 20)
+    triangle2 = triangleClass('triangle2', 'hotpink', 0, 0, 20)
+    
+could have also been formulated as
+
+    # initialize a list of triangles 
+    triangles = []
+    
+    # populate the list of triangles
+    triangles.append(triangleClass('triangle1', 'blue',    0, 0, 20))
+    triangles.append(triangleClass('triangle2', 'hotpink', 0, 0, 20))
+    
+We could then do something like
+
+    for i in range(0,len(triangles)):
+        triangles[i].setCentreCoordinates(self.width / 2, self.height / 2)
+
+For code with lots of objects, you can see how useful this would be. Your job is to implement the triangles list described above, and refactor your code to make use of this list. Then you should be able to easily extend your code so that it can draw and propagate the motion of five triangles, each a different color, and with a different initial velocity.
+
+If you are really stuck, the example scripts are here:
+* [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/3c-drawTriangle.py)
+* [triangleClass.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/3c-triangleClass.py)
+
+
 
