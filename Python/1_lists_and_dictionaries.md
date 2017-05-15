@@ -422,4 +422,4 @@ See if you can extend your code to draw more than one triangle, each with a diff
 
 If you are hopelessly struck, then there is an example script available in [drawTwoTriangles.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles.py)
 
-# [Up](python_and_good_programming_practice.md) [Next](2_functions_and_modules.md)
+# [Next](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/2_functions_and_modules.md)
