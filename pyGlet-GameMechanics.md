@@ -28,7 +28,7 @@ class graphicsWindow(pyglet.window.Window):
 
     def update(self, dt):
         print "Updating the center of the triangle"
-        self.center1 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
+        self.center1 = [self.width / 2 + randint(-200, 200), self.height / 2 + randint(-200, 200)]
 
     def on_draw(self):
 
@@ -70,7 +70,7 @@ class graphicsWindow(pyglet.window.Window):
 if __name__ == '__main__':
     window = graphicsWindow()   # initialize a window class
     pyglet.clock.schedule_interval(window.update, 1 / 2.0)  # tell pyglet the on_draw() & update() timestep
-pyglet.app.run() # run pyglet
+    pyglet.app.run() # run the infinite pyglet loop
 ```
 
 Get this code running in PyCharm, and make sure it works. Then take some time to look at the code, set some breakpoints, and start to step through the code, in and out of functions, inspecting variables along the way. Use what we learned about debugging to carry out some detective work and get a feel for how the program execution works.  
