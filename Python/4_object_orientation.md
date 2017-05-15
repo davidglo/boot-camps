@@ -188,7 +188,7 @@ Hints:
 
 If you are really stuck, there is an example script here.
 
-## Exercise 3
+## Exercise 3
 
 put your objects in lists, and loop over the lists...
 
