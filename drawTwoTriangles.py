@@ -19,8 +19,8 @@ class graphicsWindow(pyglet.window.Window):
 
     def update(self, dt):
         print "Updating the center of the triangle"
-        self.center1 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
-        self.center2 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
+        self.center1 = [self.width / 2 + randint(-200, 200), self.height / 2 + randint(-200, 200)]
+        self.center2 = [self.width / 2 + randint(-200, 200), self.height / 2 + randint(-200, 200)]
 
     def on_draw(self):
         # clear the graphics buffer
@@ -75,4 +75,4 @@ class graphicsWindow(pyglet.window.Window):
 if __name__ == '__main__':
     window = graphicsWindow()   # initialize a window class
     pyglet.clock.schedule_interval(window.update, 1 / 2.0)  # tell pyglet the on_draw() & update() timestep
-pyglet.app.run() # run pyglet
+    pyglet.app.run() # run the infinite pyglet loop
