@@ -1,6 +1,6 @@
 import pyglet
 from pyglet.gl import *
-from math import *
+import math
 from random import randint
 
 color = {}  # declare a color dictionary
@@ -17,9 +17,9 @@ def calculateTriangleVertices(radius,xcenter,ycenter):
     vertices = []  # initialize a list of vertices
 
     for i in range(0, numberOfVertices):
-        angle = i * (2.0 / 3.0) * pi  # specify a vertex of the triangle (x,y values)
-        x = radius * cos(angle) + xcenter
-        y = radius * sin(angle) + ycenter
+        angle = i * (2.0 / 3.0) * math.pi  # specify a vertex of the triangle (x,y values)
+        x = radius * math.cos(angle) + xcenter
+        y = radius * math.sin(angle) + ycenter
         vertices.append(x)  # append the x value to the vertex list
         vertices.append(y)  # append the y value to the vertex list
 
