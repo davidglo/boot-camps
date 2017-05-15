@@ -14,19 +14,12 @@ class graphicsWindow(pyglet.window.Window):
         super(graphicsWindow, self).__init__()  # constructor for graphicsWindow class
         triangle1.setCentreCoordinates(self.width / 2, self.height / 2)
         triangle2.setCentreCoordinates(self.width / 2, self.height / 2)
-
-        # triangle1.setVelocity(5,10)
-        # triangle2.setVelocity(10,5)
-
         colors.printAvailableColors()
 
     def update(self, dt):
         # print "Updating the center of the triangle"
         triangle1.setCentreCoordinates(self.width / 2 + randint(-200, 200), self.height / 2 + randint(-200, 200))
         triangle2.setCentreCoordinates(self.width / 2 + randint(-200, 200), self.height / 2 + randint(-200, 200))
-
-        # triangle1.updateCentreCoordinates(self.width, self.height )
-        # triangle2.updateCentreCoordinates(self.width, self.height )
 
     def on_draw(self):
         # clear the graphics buffer
