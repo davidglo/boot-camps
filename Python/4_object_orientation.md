@@ -31,7 +31,7 @@ Object orientated programming solves both of the problems specified above by pac
 * data
 * functions to manipulate that data 
 
-An "object" is a particular instantiation of a "class" definition. Sticking with our triangle example - we can potentially have many objects (i.e., triangles, each with their own position, size, color, and ID), but we will only have one class. If you know anything about Platonic philosophy, object oriented code resembles very much Plato's [theory of forms](https://en.wikipedia.org/wiki/Theory_of_Forms), where everything that we experience phenomenologically is in fact the imperfect manifestation of some idealized and "perfect" form. Plato famously applied his theory of forms to tables. Wikipedia explains the [Platonic theory of forms as follows](https://en.wikipedia.org/wiki/Theory_of_Forms): "For example, there are countless tables in the world but the Form of tableness is at the core; it is the essence of all of them". Substitute "triangles" for "tables" in the above example, and "class" for "Form" - and you are getting to the heart of object oriented programming. Countless triangle objects, but one triangle class, which is the essence of all of them.
+An "object" is a particular instantiation of a "class" definition. Sticking with our triangle example - we can potentially have many objects (i.e., triangles, each with their own position, size, color, and ID), but we will only have one class. If you know anything about Platonic philosophy, object oriented code resembles very much Plato's [theory of forms](https://en.wikipedia.org/wiki/Theory_of_Forms), where everything that we experience phenomenologically is in fact the imperfect manifestation of some idealized "perfect" form. Plato famously applied his theory of forms to tables. Wikipedia explains the [Platonic theory of forms as follows](https://en.wikipedia.org/wiki/Theory_of_Forms): "For example, there are countless tables in the world but the Form of tableness is at the core; it is the essence of all of them". Substitute "triangles" for "tables" in the above example, and "class" for "Form" - and you are getting to the heart of object oriented programming. Countless triangle objects, but one triangle class, which is the essence of all of them.
 
 Ok, enough philosophy for now. The idea of putting together member data and member functions which are important for certain classes of objects is called "Encapsulation". It's a key idea of object orientated programming, and refers to the practice of hiding the data in a Class, with the net result that only the functions which are defined as part of the Class can read or write (change) the data. Not only can this actually result in simpler to use and easier-to-read code which maps onto the problem we're actually trying to solve, but it also enforces practices that are much less likely to get abused by others (or ourselves in the future) when we're coding.
 
@@ -156,7 +156,7 @@ You should use a breakpoint with PyCharm's 'step into' function in order to see 
     self.center1 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
     self.center2 = [window.width / 2 + randint(-200, 200), window.height / 2 + randint(-200, 200)]
 
-with the appropriate triangleClass member functions. Do this now.
+with the appropriate triangleClass member functions. You should do this now.
 
 In on_draw(), we can swap 
 
@@ -170,13 +170,15 @@ In the example above, we have constructed two different triangleClass objects, n
 
 Note that we don't need to pass "self" ourselves to the member class functions. "self" is passed implicitly by Python when we construct an object of the class, or when we call a function of the object.
 
-## Exercise 1
+## Exercise 1c
 
-Add the calculateTriangleVertices() to the triangleClass definition, and rework your code to utilize it. Hint: you should not need to pass anything into the function when it is called, because all the relevant data should now be included in the triangleClass definition. This should start to make your
+Add the calculateTriangleVertices() to the triangleClass definition, and rework your code to utilize it. Hint: you should not need to pass anything into the function when it is called, because all the relevant data should now be included in the triangleClass definition. This should start to make your code a lot more streamlined.
 
-If you are really stuck, there is an example script here.
+If you are really stuck, the example scripts are here:
+*[drawTriangle-2c.py](boot-camps/1c-drawTriangle.py)
+*
 
-## Exercise 2
+## Exercise 2c
 
 Instead of triangles which are randomly placed each frame, let's allow the triangles to make simple linear transits across the screen, updating their positions from their last position. If they hit the wall, let them reflect off the wall by reversing the sign of the appropriate velocity component. This is the kind of thing that is made vastly easier by using an object oriented approach. 
 
@@ -188,7 +190,7 @@ Hints:
 
 If you are really stuck, there is an example script here.
 
-## Exercise 3
+## Exercise 3c
 
 put your objects in lists, and loop over the lists...
 
