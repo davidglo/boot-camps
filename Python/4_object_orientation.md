@@ -175,12 +175,12 @@ Note that we don't need to pass "self" ourselves to the member class functions. 
 Add the calculateTriangleVertices() to the triangleClass definition, and rework your code to utilize it. Hint: you should not need to pass anything into the function when it is called, because all the relevant data should now be included in the triangleClass definition. This should start to make your code a lot more streamlined.
 
 If you are really stuck, the example scripts are here:
-*[drawTriangle-2c.py](boot-camps/1c-drawTriangle.py)
-*
+*[drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/1c-drawTriangle.py)
+*[triangleClass.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/1c-triangleClass.py)
 
 ## Exercise 2c
 
-Instead of triangles which are randomly placed each frame, let's allow the triangles to make simple linear transits across the screen, updating their positions from their last position. If they hit the wall, let them reflect off the wall by reversing the sign of the appropriate velocity component. This is the kind of thing that is made vastly easier by using an object oriented approach. 
+Instead of triangles which are randomly placed each frame, let's allow the triangles to make simple linear transits across the screen, updating their positions from their last position. The member data in objects is "persistent" - i.e., it exists in the state we left it until we change it, or until we call the object's "destructor" function. Ojbect persistence means that we can increment position based on the last position. For this simple linear transit code, the triangles should be initialized with a certain velocity. If they hit the wall, let them reflect off the wall by reversing the sign of the appropriate velocity component. 
 
 Hints: 
 * to do this, we will need to add a velocity data member to the triangleClass definition 
@@ -188,7 +188,9 @@ Hints:
 * we will also need a function that updates the coordinates based on the velocity values, and reverses the appropriate velocity components if the triangle reaches a wall
 * to really get the sense of motion, you will need to change the screen refresh rate. At present, it's set to 1/2 seconds; however, the human eye does not typically see motion as continuous until we have refresh rate close to 1/30 seconds.
 
-If you are really stuck, there is an example script here.
+If you are really stuck, the example scripts are here:
+*[drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/2c-drawTriangle.py)
+*[triangleClass.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/2c-triangleClass.py)
 
 ## Exercise 3c
 
