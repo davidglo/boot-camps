@@ -62,18 +62,9 @@ Friday 19th (REA, MOC, SA, DRG)
 Beginners guide to using the [shell](shell/README.md)
 ## Before you arrive...
 
-We recommend that you bring your own laptop to work on (so 
-that you can easily continue to use the same tools for the hackathon!).
+You should have your own laptop to work on (so that you can easily continue to use the same tools for the hackathon!).
 
-You should test your installation using our testing scripts. To access these start a shell and run the 
-commands:
-
-    git clone --branch 2016-TMCS-software --single-branch  https://github.com/mikeoconnor0308/boot-camps.git
-    cd boot-camps/setup
-
-before following [these instructions](setup/README.md).
-
-You also need to create a free individual account on 
+You will also need to create a free individual account on 
 [BitBucket](https://bitbucket.org/account/signup/). Make sure 
 you know your username and password when you arrive
 
