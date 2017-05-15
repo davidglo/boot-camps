@@ -1,7 +1,6 @@
 import pyglet
 import math
 
-
 class triangleClass:
     def __init__(self, ID, color, xcenter, ycenter, rad):
         """ initialize a triangle """
@@ -10,8 +9,6 @@ class triangleClass:
         self.x = xcenter
         self.y = ycenter
         self.radius = rad
-        # self.xvelocity = 0
-        # self.yvelocity = 0
 
     def setCentreCoordinates(self, xcenter, ycenter):
         """ set the x,y coordinates of the triangle """
