@@ -127,7 +127,7 @@ First we must make drawTwoTriangles-refactor2.py aware of our class definition:
 
     from triangleClass import triangleClass
     
-To initialize two triangles, we then add the following immediately after:
+Immediately afterward, we add the following to initialize two triangle objects:
 
     # initialize the triangles that we will be drawing
     triangle1 = triangleClass('triangle1', 'blue',    0, 0, 20)
