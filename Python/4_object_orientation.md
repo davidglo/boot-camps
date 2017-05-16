@@ -76,7 +76,7 @@ This piece of Python contains lots of new ideas. Before we explore them, feel fr
     $ from triangleClass import triangleClass
     $ help(triangleClass)
 
-"triangleClass", is a example of a Class. Classes are used to package up functions with associated data. As you can see in the help(), we can only see the functions defined in the class. There are two functions, `__init__` (always enclosed on either side by two underscores), which is used to construct a new Object of type GuessGame, and "guess" which is used to guess the secret. As you can see, the first argument to each of these functions is "self". "self" is a special variable that is used by the Class to gain access to the data hidden within. 
+"triangleClass", is a example of a Class. Classes are used to package up functions with associated data. As you can see in the help(), we can only see the functions defined in the class. It has several functions, `__init__` (always enclosed on either side by two underscores), which is used to construct a new Object of type triangleClass, and several "set" and "get" functions, each of which is used to either retreive or set triangleClass data members. As you can see, the first argument to each of these functions is "self". "self" is a special variable that is used by the Class to gain access to the data hidden within. 
 
 Lets look again at the source for [triangleClass-v1.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/triangleClass-v1.py)
 
