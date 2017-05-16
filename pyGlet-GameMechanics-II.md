@@ -6,7 +6,7 @@ There is an excellent & very easy tuturial on basic pyGlet structure which is [a
 
 Do what you want. play around. make mistakes. do something crazy. try adding sprites for example. if you want to experiment with sprites for example, then these little *.pngs should be easy to use as sprites ([manby](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/manby.png), [logan](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/logan.png), [essex](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/essex.png)) and might get your creative juices flowing.
 
-#Other things to try
+# Other things to try
 
 There's lots of other things that you could try and do with this code, and you should feel free to do what you want, but if you are stumped, then here are some suggestions:
 
