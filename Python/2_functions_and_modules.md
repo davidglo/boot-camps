@@ -175,7 +175,9 @@ To do this we are going to execute the following steps:
 * let's also add an additional function to colors.py, which is called printAvailableColors(), and which prints out all of the colors which we have defined
 * add a call within \__init()__ to printAvailableColors(), so that we get a list of available colors at initialization time
 
-If you are really stuck, then the completed scripts are available as [drawTwoTriangles-refactor2.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles-refactor2.py) and [colors.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/colors.py)
+If you are really stuck, then the completed scripts are available as 
+* [drawTwoTriangles-refactor2.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles-refactor2.py) 
+* [colors.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/colors.py)
 
 One final point: it's often the case that the code within a module definition is something which can function on its own as standalone python program; however, it might also include lots of useful stuff that we might want to reuse elsewhere. For example, consider a slightly modified version of our color.py module:
 
