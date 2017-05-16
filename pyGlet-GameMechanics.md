@@ -16,10 +16,9 @@ pyGlet's key functions behave as follows:
  
 ```
 import pyglet
-from pyglet.gl import *
-from math import *
+import pyglet.gl
+import math
 from random import randint
-
 
 class graphicsWindow(pyglet.window.Window):
     def __init__(self):
@@ -31,7 +30,9 @@ class graphicsWindow(pyglet.window.Window):
         self.center1 = [self.width / 2 + randint(-200, 200), self.height / 2 + randint(-200, 200)]
 
     def on_draw(self):
-
+        # clear the graphics buffer
+        pyglet.gl.glClear(pyglet.gl.GL_COLOR_BUFFER_BIT) 
+        
         # now we will calculate the list of vertices required to draw the triangle
         numberOfVertices = 3        # specify the number of vertices we need for the shape
         radius = 20                 # specify the radius of each point from the center
@@ -40,20 +41,20 @@ class graphicsWindow(pyglet.window.Window):
         vertices = []  # initialize a list of vertices
 
         angle = 0.0               # specify the first vertex of the triangle (x,y values)
-        x = radius * cos(angle) + xcenter
-        y = radius * sin(angle) + ycenter
+        x = radius * math.cos(angle) + xcenter
+        y = radius * math.sin(angle) + ycenter
         vertices.append(x)  # append the x value to the vertex list
         vertices.append(y)  # append the y value to the vertex list
 
-        angle = (2.0 / 3.0) * pi  # specify the second vertex of the triangle (x,y values)
-        x = radius * cos(angle) + xcenter
-        y = radius * sin(angle) + ycenter
+        angle = (2.0 / 3.0) * math.pi  # specify the second vertex of the triangle (x,y values)
+        x = radius * math.cos(angle) + xcenter
+        y = radius * math.sin(angle) + ycenter
         vertices.append(x)  # append the x value to the vertex list
         vertices.append(y)  # append the y value to the vertex list
 
-        angle = (4.0 / 3.0) * pi  # specify the third vertex of the triangle (x,y values)
-        x = radius * cos(angle) + xcenter
-        y = radius * sin(angle) + ycenter
+        angle = (4.0 / 3.0) * math.pi  # specify the third vertex of the triangle (x,y values)
+        x = radius * math.cos(angle) + xcenter
+        y = radius * math.sin(angle) + ycenter
         vertices.append(x)  # append the x value to the vertex list
         vertices.append(y)  # append the y value to the vertex list
 
@@ -61,16 +62,14 @@ class graphicsWindow(pyglet.window.Window):
         vertexList = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))
 
         # now use pyGlet commands to draw lines between the vertices
-        glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)  # clear the graphics buffer
-        glColor3f(1, 1, 0)                      # specify colors
-        vertexList.draw(GL_LINE_LOOP)           # draw
-
+        pyglet.gl.glColor3f(1, 1, 0)                      # specify colors
+        vertexList.draw(pyglet.gl.GL_LINE_LOOP)           # draw
 
 # this is the main game engine loop
 if __name__ == '__main__':
     window = graphicsWindow()   # initialize a window class
     pyglet.clock.schedule_interval(window.update, 1 / 2.0)  # tell pyglet the on_draw() & update() timestep
-    pyglet.app.run() # run the infinite pyglet loop
+    pyglet.app.run() # run pyglet
 ```
 
 Get this code running in PyCharm, and make sure it works. Then take some time to look at the code, set some breakpoints, and start to step through the code, in and out of functions, inspecting variables along the way. Use what we learned about debugging to carry out some detective work and get a feel for how the program execution works.  
