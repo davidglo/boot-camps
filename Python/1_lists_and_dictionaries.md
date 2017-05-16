@@ -420,6 +420,6 @@ Once you've figured out how to do this, play around with a few different colors 
 
 See if you can extend your code to draw more than one triangle, each with a different color and with its own center. So you'll need to modify \__init()__ and update() to include a new data structure self.center2, and then you'll probably need to copy & paste some code in on_draw() in order to tell pyGlet to draw a second list of vertices
 
-If you are hopelessly struck, then there is an example script available in [drawTwoTriangles.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles.py)
+If you are hopelessly stuck, then there is an example script available in [drawTwoTriangles.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles.py)
 
 # [Next](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/2_functions_and_modules.md)
