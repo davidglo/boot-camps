@@ -84,19 +84,23 @@ Next, while you can multiply a vector by a matrix, you cannot multiply a matrix 
 
 Let's look at how to use numpy to carry out a simple and oft-used linear algebra routine - matrix-matrix multiplications in order to rotate objects. The aim is to incorporate this into our triangle drawing code so that we can rotate our triangles. There's further detail [available at wikipedia](https://en.wikipedia.org/wiki/Rotation_matrix)
 
-Say we have a list of triangle vertices (self.vertices) which are oriented around a center point self.x and self.y. If self.vertices is ordered in a list as follows [x1, y1, x2, y2, x3, y3, ...], then the following code translates this set of vertices to the origin, uses numpy's linear algebra routines to rotate it by some angle self.theta (where self.theta is in degrees), and then translates it back to where it was before we carried out the rotation operation.
+Say we have a list of triangle vertices (self.vertices) which are oriented around a center point self.x and self.y. If self.vertices is ordered in a list as follows [x1, y1, x2, y2, x3, y3, ...], then the following function rotateVertices() translates this set of vertices to the origin, uses numpy's linear algebra routines to rotate it by some angle self.theta (where self.theta is in degrees), and then translates it back to where it was before we carried out the rotation operation.
 
+    def rotateVertices(self):
+        """function that translates a set of coordinates to some origin & then rotates them"""
+        
+        # translate vertices to the origin
         c = numpy.array([[self.vertices[0] - self.x,self.vertices[1] - self.y],
                          [self.vertices[2] - self.x,self.vertices[3] - self.y],
                          [self.vertices[4] - self.x,self.vertices[5] - self.y]])
 
-        theta = (self.theta / 180.) * numpy.pi
-        rotMatrix = numpy.array([[numpy.cos(theta), -numpy.sin(theta)],
+        theta = (self.theta / 180.) * numpy.pi       # calculate theta in radians & the corresponding rotation matrix
+        rotMatrix = numpy.array([[numpy.cos(theta), -numpy.sin(theta)],    
                                  [numpy.sin(theta), numpy.cos(theta)]])
 
-        c = numpy.matmul(c,rotMatrix)
+        c = numpy.matmul(c,rotMatrix)                # matrix-matrix multiplication with numpy
 
-        self.vertices = [c[0][0] + self.x,c[0][1] + self.y,
+        self.vertices = [c[0][0] + self.x,c[0][1] + self.y,    # translate the rotated vertices back to the center
                          c[1][0] + self.x,c[1][1] + self.y,
                          c[2][0] + self.x,c[2][1] + self.y]
 
