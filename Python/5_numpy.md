@@ -87,7 +87,7 @@ Let's look at how to use numpy to carry out a simple and oft-used linear algebra
 Say we have a list of triangle vertices (self.vertices) which are oriented around a center point self.x and self.y. If self.vertices is ordered in a list as follows [x1, y1, x2, y2, x3, y3, ...], then the following function rotateVertices() translates this set of vertices to the origin, uses numpy's linear algebra routines to rotate it by some angle self.theta (where self.theta is in degrees), and then translates it back to where it was before we carried out the rotation operation.
 
     def rotateVertices(self):
-        """function that translates a set of coordinates to some origin & then rotates them"""
+        """function to translate a set of coordinates to the (0,0) origin & then rotate them by some angle theta"""
         
         # translate vertices to the origin
         c = numpy.array([[self.vertices[0] - self.x,self.vertices[1] - self.y],
