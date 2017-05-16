@@ -84,7 +84,7 @@ Next, while you can multiply a vector by a matrix, you cannot multiply a matrix 
 
 Let's look at how to use numpy to carry out a simple and oft-used linear algebra routine - matrix-matrix multiplications in order to rotate objects. The aim is to incorporate this into our triangle drawing code so that we can rotate our triangles. There's further detail [available at wikipedia](https://en.wikipedia.org/wiki/Rotation_matrix)
 
-Say we have a list of triangle vertices with center point self.x and self.y, and the vertices are ordered in a list as follows [x1, y1, x2, y2, x3, y3, ...]. The following code translates this set of vertices to the origin, and then uses numpy's linear algebra routines to rotate it by some angle self.theta (where self.theta is in degrees).
+Say we have a list of triangle vertices (self.vertices) which are oriented around a center point self.x and self.y. If self.vertices is ordered in a list as follows [x1, y1, x2, y2, x3, y3, ...], then the following code translates this set of vertices to the origin, uses numpy's linear algebra routines to rotate it by some angle self.theta (where self.theta is in degrees), and then translates it back to where it was before we carried out the rotation operation.
 
         c = numpy.array([[self.vertices[0] - self.x,self.vertices[1] - self.y],
                          [self.vertices[2] - self.x,self.vertices[3] - self.y],
@@ -95,9 +95,12 @@ Say we have a list of triangle vertices with center point self.x and self.y, and
                                  [numpy.sin(theta), numpy.cos(theta)]])
 
         c = numpy.matmul(c,rotMatrix)
-        rotatedVertices = [c[0][0],c[0][1],c[1][0],c[1][1],c[2][0],c[2][1]]
 
-The rotated vertices now live in a list called rotatedVertices, which again is ordered [x1, y1, x2, y2, x3, y3, ...]. To complete things, we should translate them back to their original self.x, self.y center point.
+        self.vertices = [c[0][0] + self.x,c[0][1] + self.y,
+                         c[1][0] + self.x,c[1][1] + self.y,
+                         c[2][0] + self.x,c[2][1] + self.y]
+
+At the end of this code snippet, self.vertices now contains a the rotated Vertices.
 
 For this excercise, see if you can take the numpy code snippet above and use it to rotate your vertices as they are moving around. Some hints on modifications that you might find useful to get this working:
 * change self.vertices to a data structure that lives on triangleClass, using a declaration like self.vertices = [0.0] * 6
