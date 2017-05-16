@@ -1,8 +1,9 @@
 # Getting Started with Python
 
 ## Setup
-1. Make sure you have python installed. I suggest you use [Anaconda](https://www.continuum.io/downloads)
-2. Install the community edition of [PyCharm](https://www.jetbrains.com/pycharm/)
+1. Make sure you have python installed. I suggest you use [Anaconda for python 2.7](https://www.continuum.io/downloads)
+2. you should then [pip install pyglet](https://bitbucket.org/pyglet/pyglet/wiki/Download) 
+3. Install the community edition of [PyCharm](https://www.jetbrains.com/pycharm/)
 
 ## Hello World
 
