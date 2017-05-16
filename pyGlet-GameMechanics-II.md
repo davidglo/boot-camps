@@ -1,94 +1,25 @@
 # Simple Game Mechanics in Python
 
-The point of this section is to have fun and let your creativity go where it wants! You have the chance to use the stuff that you've learned so far to experiment with and develop the simple game framework that we've been referring to.
+you've been working hard learning about python now. And along the way you've been building a nice little game engine which has actually gotten quite sophisticated. The point of this section is really just to have fun, hack around, and let your creativity go where it wants! You have the chance to use the stuff that you've learned so far to experiment with and develop the simple game framework that we've been referring to.
 
-you will explore some simple game mechanics available in Python using [pyGlet](https://bitbucket.org/pyglet/pyglet/wiki/Home), which you will need to install either using MacPorts, Brew, or Anaconda.
+There is an excellent & very easy tuturial on basic pyGlet structure which is [available at this link](http://simeonfranklin.com/talk/pyglet/slides.html#slide-1), which you should work your way through. Don't worry about making the game suggested in the final slide of the tutorial. Do what you want. play around. make mistakes. do something crazy. try adding sprites for example. if you want to experiment with sprites for example, then these little *.pngs (which should be easy to use as sprites) might get your creative juices flowing.
+* [manby](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/manby.png)
+* [logan](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/logan.png)
+* [essex](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/essex.png)
 
-There is an excellent & very easy tuturial on basic pyGlet structure which is [available at this link](http://simeonfranklin.com/talk/pyglet/slides.html#slide-1), which you should work your way through. Don't worry about making the game suggested in the final slide of the tutorial. Work through the example below instead.
+#Other things to try
 
-Here is some code, call it pyGlet-drawCircles.py, that generates randomly placed circles. Note that the makeCircle function actually builds a lists of vertices, which pyGlet then "draws" by sequentially connecting lines between the vertices. The functions in the graphicsWindow class behave as follows:
+There's lots of other things that you could try and do with this code. do what you want, but if you are stumped, then here are some suggestions:
 
-* \__init__(self) is responsible for initializing the important data structures required during draws & updates
-
-* on_draw() is responsible for executing the drawing instructions
- 
-* update() is responsible for executing instructions required to update the positions of objects
- 
-* when pyglet runs, it calles on_draw() and update() at the frequency specified in pyglet.clock.schedule_interval()
- 
-```
-import pyglet
-from pyglet.gl import *
-from math import *
-from random import randint
-
-def makeCircle(numPoints, radius, xcenter, ycenter):
-    vertices = []
-    for i in range(numPoints):
-        angle = radians(float(i)/numPoints * 360.0)
-        x = radius*cos(angle) + xcenter
-        y = radius*sin(angle) + ycenter
-        vertices += [x,y]
-    circle = pyglet.graphics.vertex_list(numPoints, ('v2f', vertices))
-    return circle
-
-class graphicsWindow(pyglet.window.Window):
-    def __init__(self):
-        super(graphicsWindow, self).__init__()
-        self.ncircles = 2
-        self.drawList = [0]*self.ncircles
-        self.center1 = [self.width/2,self.height/2]
-        self.center2 = [self.width/2,self.height/2]
-
-    def on_draw(self):
-        self.drawList[0] = makeCircle(100, 20, self.center1[0], self.center1[1])  # populate the drawList
-        self.drawList[1] = makeCircle(100, 50, self.center2[0], self.center2[1])
+* Figure out how to make classes for shapes other than triangles (e.g., pentagons, octagons, circles, ellipses, etc.)
+* Experiment with different ways of making the circles move. For example, see if you can figure out how to write a function which will make the circles travel in different ways. For example, you could make them move:
     
-        glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)  # clear the graphics buffer
-        glColor3f(1,1,0)                        # specify colors & draw
-        self.drawList[0].draw(GL_LINE_LOOP)
-        glColor3f(0.5,0,1)                      # specify colors & draw
-        self.drawList[1].draw(GL_LINE_LOOP)
-
-    def update(self,dt):
-        #print(dt) # time elapsed since last time a draw was called
-        print "Updating the centers of the circles"
-        self.center1 = [window.width/2 + randint(-200,200), window.height/2 + randint(-200,200)]
-        self.center2 = [window.width/2 + randint(-200,200), window.height/2 + randint(-200,200)]
-        print "Finished update"
-
-if __name__ == '__main__':
-    window = graphicsWindow()                                 # initialize a window class
-    pyglet.clock.schedule_interval(window.update, 1/2.0)  # tell pyglet how often it should execute on_draw() & update()
-    pyglet.app.run()                                      # run pyglet
-```
-
-
-#Tasks
-
-There's a few things that you should try and do with this code:
-
-* Get it running in PyCharm
-
-* Figure out how to extend the code to draw more than three circles
-* 
-    here's a hint - think about populating drawList, and then looping over drawList, something like:
-```
-    for element in drawList:
-        glColor3f(1,1,0)
-        element.draw(GL_LINE_LOOP)
-```
-* Rather than randomly generated circles, experiment with different ways of making the circles move. For example, see if you can figure out how to write a function which will make the circles travel in:
-
-    1. Straight lines
+    1. On circular trajectories
     
-    2. A circular trajectory
+    2. Harmonically, based on how far the circle is displaced from the center of the graphics window
     
-    3. Harmonically, based on how far the circle is displaced from the center of the graphics window
+    3. On trajectories of the sort that you might expect for particles which have some kind of force interaction with the other particles in the system - e.g., harmonic interactions, Lennard-Jones interactions, or even gravitational fields. To incorporate forces, you will require an update scheme which incorporates forces - e.g., the so-called [velocity verlet scheme](https://en.wikipedia.org/wiki/Verlet_integration) is good way of doing this.
     
-*  Split out the makeCircle() function so that it lives in a new file called 'simpleShapes.py', and figure out how to construct a module so that can run pyGlet-draw.py by simply including a line which reads "import simpleShapes" 
+PyGlet has lots of options - for example it can implement sounds (you could make a bang when particles collide!), and also it can recognize keystrokes to control things in simple games. If you are really ambitious, you could even imagining trying to build a simple game of the old classic "pong"!
 
-* Change simpleShapes.py so that rather than calling the makeCircle() function, you have a circle class, which should include data (radius, center positions, and vertex lists), as well as functions (to update position). Now you should be able to modify pyGlet-draw.py to instantiate various circle objects (e.g. circle1 = circle(...)). The position of a circle (e.g., circle1) can then be updated using a command like "circle1.updatePosition()"
- 
-* If you're really motivated, try and write a new class that draws a new shape (e.g., triangle, square, octagon, ellipse, rectangle, etc.)
-
+Be creative - this is a chance to experiment & have fun and see what you can do.
