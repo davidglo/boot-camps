@@ -50,7 +50,7 @@
 ## Resources:
 1. Official Git documentation: [Git docs](https://git-scm.com/doc)
 2. Useful Git tutorial: [Atlassian tutorial](https://www.atlassian.com/git/tutorials/)
-3. SourceTree tutorial: [GitKraken tutorial](https://support.gitkraken.com/getting-started/guide)
+3. GitKraken tutorial: [GitKraken tutorial](https://support.gitkraken.com/getting-started/guide)
 4. [Visual Git](http://marklodato.github.io/visual-git-guide/index-en.html) (REALLY HELPFUL!) 
 3. [Branches](https://github.com/davidglo/boot-camps/blob/2016-TMCS-software/version-control/ReadMeSession1.md#branches)
 4. Git-flow - How to manage branches in a real project: [GitFlow](https://support.gitkraken.com/repositories/git-flow), and where it comes from: [How to do branches properly](http://nvie.com/posts/a-successful-git-branching-model/).
