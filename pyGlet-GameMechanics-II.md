@@ -1,4 +1,4 @@
-# Simple Game Mechanics in Python
+# Experiment & Play to hack-your-own game mechanics
 
 You've been working hard learning about python now. And along the way you've been building a nice little game engine which has actually gotten quite sophisticated. The point of this section is really just to have fun, hack around, and let your creativity go where it wants! You have the chance to use the stuff that you've learned so far to experiment with and develop the simple game framework that we've been referring to.
 
