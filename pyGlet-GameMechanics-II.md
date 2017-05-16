@@ -17,7 +17,7 @@ There's lots of other things that you could try and do with this code, and you s
     
     2. Harmonically, based on how far the circle is displaced from the center of the graphics window
     
-    3. On trajectories of the sort that you might expect for particles which have some kind of force interaction with the other particles in the system - e.g., harmonic interactions, Lennard-Jones interactions, or even gravitational fields. To incorporate forces, you will require an update scheme which incorporates forces - e.g., the so-called [velocity verlet scheme](https://en.wikipedia.org/wiki/Verlet_integration) is good way of doing this.
+    3. On trajectories of the sort that you might expect for particles which have some kind of force interaction with the other particles in the system - e.g., momentum conserving collisions, harmonic interactions, Lennard-Jones interactions, or even gravitational fields. To incorporate forces, you will require an update scheme which incorporates forces - e.g., the so-called [velocity verlet scheme](https://en.wikipedia.org/wiki/Verlet_integration) is good way of doing this.
     
 PyGlet has lots of options - for example it can implement sounds (you could make a bang when particles collide!), and it also has member function [which recognize keyboard keystrokes](http://pyglet.readthedocs.io/en/pyglet-1.2-maintenance/programming_guide/keyboard.html) to enable the design of simple games. If you are really ambitious, you could even imagining trying to build a spiffy version of the old classic "pong"!
 
