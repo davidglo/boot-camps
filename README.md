@@ -15,7 +15,7 @@ Tuesday 16th (DRG)
 * 11:00 Learning more about Python
     * [A Python Framework for Simple Game Mechanics](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/pyGlet-GameMechanics.md)
     * [Basic Python features](https://github.com/davidglo/boot-camps/blob/2016-TMCS-software/Outlines/python-outline.md#python-outline)
-      * [containers, lists, and dictionaries]https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/1_lists_and_dictionaries.md
+      * [containers, lists, and dictionaries](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/1_lists_and_dictionaries.md)
       * [functions & modules](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/2_functions_and_modules.md)
       * [documenting Code](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/3_documenting_code.md)
     * [Basic Principles of Object-Oriented Programming](Python/4_object_orientation.md)
