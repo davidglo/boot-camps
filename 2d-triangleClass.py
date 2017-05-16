@@ -73,33 +73,23 @@ class triangleClass:
 
     def rotateVertices(self):
         """function that translates a set of coordinates to some origin & then rotates them"""
-
-        # translate vertices to the origin
-        for i in range(0,len(self.vertices)/2):
-            xidx = i*2
-            yidx = i*2 + 1
-            self.vertices[xidx] = self.vertices[xidx] - self.x
-            self.vertices[yidx] = self.vertices[yidx] - self.y
-
-        c = numpy.array([[self.vertices[0],self.vertices[1]],
-                         [self.vertices[2],self.vertices[3]],
-                         [self.vertices[4],self.vertices[5]]])
+        c = numpy.array([[self.vertices[0] - self.x,self.vertices[1] - self.y],
+                         [self.vertices[2] - self.x,self.vertices[3] - self.y],
+                         [self.vertices[4] - self.x,self.vertices[5] - self.y]])
 
         theta = (self.theta / 180.) * numpy.pi
         rotMatrix = numpy.array([[numpy.cos(theta), -numpy.sin(theta)],
                                  [numpy.sin(theta), numpy.cos(theta)]])
 
         c = numpy.matmul(c,rotMatrix)
-        rotatedVertices = [c[0][0],c[0][1],c[1][0],c[1][1],c[2][0],c[2][1]]
 
-        for i in range(0,len(rotatedVertices)/2):
-            xidx = i*2
-            yidx = i*2 + 1
-            self.vertices[xidx] = rotatedVertices[xidx] + self.x
-            self.vertices[yidx] = rotatedVertices[yidx] + self.y
+        self.vertices = [c[0][0] + self.x,c[0][1] + self.y,
+                         c[1][0] + self.x,c[1][1] + self.y,
+                         c[2][0] + self.x,c[2][1] + self.y]
 
     def setThetaIncrement(self,value):
         self.thetaIncrement = value
 
     def updateTheta(self):
         self.theta = self.theta + self.thetaIncrement
+
