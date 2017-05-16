@@ -104,7 +104,7 @@ Say we have a list of triangle vertices (self.vertices) which are oriented aroun
                          c[1][0] + self.x,c[1][1] + self.y,
                          c[2][0] + self.x,c[2][1] + self.y]
 
-At the end of this code snippet, self.vertices now contains a the rotated Vertices.
+At the end of this code snippet, self.vertices now contains the vertices, all rotated by angle theta.
 
 For this excercise, see if you can take the numpy code snippet above and use it to rotate your vertices as they are moving around. Some hints on modifications that you might find useful to get this working:
 * change self.vertices to a data structure that lives on triangleClass, using a declaration like self.vertices = [0.0] * 6
