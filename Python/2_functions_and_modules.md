@@ -156,7 +156,7 @@ So by encapsulating data and functions in modules, we can make code our more gen
 
 ## Exercise
 
-The code that we wrote to make colors in (drawTwoTriangles-refactor1.py)[https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles-refactor1.py], something like
+The code that we wrote to make colors in [drawTwoTriangles-refactor1.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles-refactor1.py), something like
 
     color = {}  # declare a color dictionary
     color['yellow'] = [1.0, 1.0, 0.0]  # fill each entry of the color dictionary with a list of three floats
