@@ -133,7 +133,7 @@ Immediately afterward, we add the following to initialize two triangle objects:
     triangle1 = triangleClass('triangle1', 'blue',    0, 0, 20)
     triangle2 = triangleClass('triangle2', 'hotpink', 0, 0, 20)
     
-This is key - it's where we "instantiate" an ojbect from a class defintion. We're saying: 
+This is key - it's where we "instantiate" an object from a class defintion. We're saying: 
 *"initialize an object triangle1 from class triangleClass, using 'triangle1', 'blue',    0, 0, 20 as arguments to the triangleClass constructor"
 *"initialize an object triangle2 from class triangleClass, using 'triangle2', 'hotpink', 0, 0, 20 as arguments to the triangleClass constructor"
 
