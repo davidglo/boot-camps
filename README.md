@@ -40,11 +40,11 @@ Wednesday 17th (REA, MOC, SA, DRG)
 * 12:00 [Testing software and catching errors](testing/README.md) ([slides](testing/Testing.ppt)) - REA/DRG
 * 12:30 Lunch
 * 13:30 A REALLY Quick overview of machine learning & data science (DRG)
-* 14:00 Overview of the three hackathon projects
-    * REA - Machine learning of data representation in Markov Models
+* 14:00 [The data science pipeline](https://github.com/RobertArbon/pipeline_example/blob/master/Data%20science%20pipeline.ipynb) - REA
+* 14:30 Overview of the three hackathon projects
+    * REA - Machine learning of transfer operators for biomolecules
     * SA  - Machine learning potential energy surfaces
     * MOC - Machine learning body coordinates for interactive molecular simulation in VR
-* 14:30 [The data science pipeline](https://github.com/RobertArbon/pipeline_example/blob/master/Data%20science%20pipeline.ipynb) - REA
 * 15:15 coffee
 * 16:30 guest lecture: Phil Bates (chief Cloud Computing architect @Oracle)
 * 18:00 Pub. Students should take this opportunity to organize themselves into their project groups
