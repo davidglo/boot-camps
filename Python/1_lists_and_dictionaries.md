@@ -353,9 +353,7 @@ Note that string.join has added a space between each letter. Using help() we can
     $ s
     'hello'
 
-### Exercise 1a
-
-Let's return to the simple line drawing program we looked at earlier. The script is available as [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle.py). For the purposes of this exercise, we will focus on the following code:
+Let's return to the simple line drawing program we looked at earlier. The script is available as [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle.py). 
 
         # now we will calculate the list of vertices required to draw the triangle
         numberOfVertices = 3        # specify the number of vertices we need for the shape
@@ -384,10 +382,12 @@ Let's return to the simple line drawing program we looked at earlier. The script
 
         # convert the vertices list to pyGlet vertices format
         vertexList = pyglet.graphics.vertex_list(numberOfVertices, ('v2f', vertices))
-    
-There's lots of redundant code in this function, which we can tighten up using what we've learned about lists. Your job is to use PyCharm and its debugging facilities to step through this code, figure out what it's doing, and then refactor it utilizing what you've learned about lists and loops. You should be able to make significant improvements, cleaning up the rendundancy and making much more compact code which is more elegant and less error-prone. This is the sort of task that one often finds oneself having to carry out in the course of a software dev project: explicit code can often be cleaned up and made more transparent through the canny use of lists and dictionaries.
 
-If you are really stuck, then there is an example completed script available to read in [drawTriangle-refactor1.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle-refactor1.py).
+### Exercise 1a
+
+For the purposes of this exercise, we will focus on the code snippet above. There's lots of redundant code in this function, which we can tighten up using what we've learned about lists. Your job is to use PyCharm and its debugging facilities to step through this code, figure out what it's doing, and then refactor it utilizing what you've learned about lists and loops. You should be able to make significant improvements, cleaning up the rendundancy and making much more compact code which is more elegant and less error-prone. This is the sort of task that one often finds oneself having to carry out in the course of a software dev project: explicit code can often be cleaned up and made more transparent through the canny use of lists and dictionaries.
+
+If you are really stuck, then there is an example completed script available to read in [1a/drawTriangle-refactor1.py](1a/drawTriangle-refactor1.py).
 
 ### Exercise 1b
 
@@ -414,12 +414,12 @@ Your job now is to formulate a nested structure of dictionaries/lists, which all
 
     class graphicsWindow(pyglet.window.Window):
 
-Once you've figured out how to do this, play around with a few different colors for your triangle. It should be as easy as simply editing the string which indicates color. Feel free to get creative. [The link at this page gives lots of different examples of various colors in '3f' format](http://prideout.net/archive/colors.php#Floats). If you are really stuck, then there is an example completed script available to read in [drawTriangle-refactor2.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle-refactor2.py).
+Once you've figured out how to do this, play around with a few different colors for your triangle. It should be as easy as simply editing the string which indicates color. Feel free to get creative. [The link at this page gives lots of different examples of various colors in '3f' format](http://prideout.net/archive/colors.php#Floats). If you are really stuck, then there is an example completed script available to read in [1b/drawTriangle-refactor2.py](1b/drawTriangle-refactor2.py).
 
-### Excercise 1c
+### Exercise 1c
 
 See if you can extend your code to draw more than one triangle, each with a different color and with its own center. So you'll need to modify \__init()__ and update() to include a new data structure self.center2, and then you'll probably need to copy & paste some code in on_draw() in order to tell pyGlet to draw a second list of vertices
 
-If you are hopelessly stuck, then there is an example script available in [drawTwoTriangles.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles.py)
+If you are hopelessly stuck, then there is an example script available in [1c/drawTwoTriangles.py](1c/drawTwoTriangles.py)
 
 # [Next](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/2_functions_and_modules.md)
