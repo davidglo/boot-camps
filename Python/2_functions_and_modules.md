@@ -66,11 +66,9 @@ Note also that you can define your function to take as many arguments, and retur
     $ t
     5
 
-## Exercise
-
 ### Exercise 2a
 
-The file [drawTwoTriangles.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles.py) can be made considerably more readable and compact by utilizing functions. Let's look specifically at the code invoked to draw the two triangles 
+The file [1c/drawTwoTriangles.py](1c/drawTwoTriangles.py) can be made considerably more readable and compact by utilizing functions. Let's look specifically at the code invoked to draw the two triangles 
 
         # now we will calculate the list of vertices required to draw the FIRST triangle
         numberOfVertices = 3        # specify the number of vertices we need for the shape
@@ -118,7 +116,7 @@ The file [drawTwoTriangles.py](https://github.com/davidglo/boot-camps/blob/2017-
 
 Using what you've learned about functions, make a function calculateTriangleVertices() which will eliminate the redundant code in what's written above. calculateTriangleVertices() should take as input the radius, and the x,y coordinates of the center. It should return a vertexList in pyGlet format. 
 
-If you are really stuck, there is an example completed script in [drawTwoTriangles-refactor1.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles-refactor1.py)
+If you are really stuck, there is an example completed script in [2a/drawTwoTriangles-refactor1.py](2a/drawTwoTriangles-refactor1.py)
 
 ## Modules
 
@@ -154,7 +152,7 @@ let us access functions (e.g., pyglet.gl.glClear) and data members (e.g., pyglet
 
 So by encapsulating data and functions in modules, we can make code our more general, and more readable, and more sustainable.
 
-## Exercise
+## Exercise 2b
 
 The code that we wrote to make colors in [drawTwoTriangles-refactor1.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles-refactor1.py), something like
 
@@ -176,8 +174,8 @@ To do this we are going to execute the following steps:
 * add a call within \__init()__ to printAvailableColors(), so that we get a list of available colors at initialization time
 
 If you are really stuck, then the completed scripts are available as 
-* [drawTwoTriangles-refactor2.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTwoTriangles-refactor2.py) 
-* [colors.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/colors.py)
+* [2b/drawTwoTriangles-refactor2.py](2b/drawTwoTriangles-refactor2.py) 
+* [2b/colors.py](2b/colors.py)
 
 One final point: it's often the case that the code within a module definition is something which can function on its own as standalone python program; however, it might also include lots of useful stuff that we might want to reuse elsewhere. For example, consider a slightly modified version of our color.py module:
 
