@@ -170,15 +170,15 @@ In the example above, we have constructed two different triangleClass objects, n
 
 Note that we don't need to pass "self" ourselves to the member class functions. "self" is passed implicitly by Python when we construct an object of the class, or when we call a function of the object.
 
-## Exercise 1c
+## Exercise 4a
 
 Add the calculateTriangleVertices() to the triangleClass definition, and rework your code to utilize it. Hint: you should not need to pass anything into the function when it is called, because all the relevant data should now be included in the triangleClass definition. This should start to make your code a lot more streamlined.
 
 If you are really stuck, the example scripts are here:
-* [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/1c-drawTriangle.py)
-* [triangleClass.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/1c-triangleClass.py)
+* [4a/drawTriangle.py](4a/1c-drawTriangle.py)
+* [4a/triangleClass.py](4a/triangleClass.py)
 
-## Exercise 2c
+## Exercise 4b
 
 Instead of triangles which are randomly placed each frame, let's allow the triangles to make simple linear transits across the screen, updating their positions from their last position. The member data in objects is "persistent" - i.e., it exists in the state we left it until we change it, or until we call the object's "destructor" function. Ojbect persistence means that we can increment position based on the last position. For this simple linear transit code, the triangles should be initialized with a certain velocity. If they hit the wall, let them reflect off the wall by reversing the sign of the appropriate velocity component. 
 
@@ -189,10 +189,10 @@ Hints:
 * to really get the sense of motion, you will need to change the screen refresh rate. At present, it's set to 1/2 seconds; however, the human eye does not typically see motion as continuous until we have refresh rate close to 1/30 seconds.
 
 If you are really stuck, the example scripts are here:
-* [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/2c-drawTriangle.py)
-* [triangleClass.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/2c-triangleClass.py)
+* [4b/drawTriangle.py](4b/2c-drawTriangle.py)
+* [4b/triangleClass.py](4b/2c-triangleClass.py)
 
-## Exercise 3c
+## Exercise 4c
 
 One of the really powerful things about working with objects is that lists can hold objects. So for example, our previous triangle instantiations, which we wrote as
 
@@ -217,8 +217,8 @@ We could then do something like
 For code with lots of objects, you can see how useful this sort of thing would be. Your job in this exercise is to implement the triangles list described above, and refactor your code to make use of loops over this list. Then you should be able to easily extend your code so that it can draw and propagate the motion of five triangles, each a different color, and a different initial velocity.
 
 If you are really stuck, the example scripts are here:
-* [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/3c-drawTriangle.py)
-* [triangleClass.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/3c-triangleClass.py)
+* [4c/drawTriangle.py](4c/3c-drawTriangle.py)
+* [4c/triangleClass.py](4c/3c-triangleClass.py)
 
 
 
