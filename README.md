@@ -21,8 +21,7 @@ Tuesday 16th (DRG)
       * [documenting Code](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/3_documenting_code.md)
     * [Basic Principles of Object-Oriented Programming](Python/4_object_orientation.md)
     * Other Potentially useful stuff 
-      * [Python tutorial](https://docs.python.org/3/tutorial/index.html) (use as a reference, not an actual tutorial)
-      * [Anaconda documentation](http://conda.pydata.org/docs/using/index.html) (Useful for understanding environments and package management). 
+      * [Python tutorial](https://docs.python.org/3/tutorial/index.html) (use as a reference, not an actual tutorial) 
       * Already a python expert? Try some [Project Euler](https://projecteuler.net/) challenges.
 
 * 11:30 coffee
