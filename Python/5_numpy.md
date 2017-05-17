@@ -65,7 +65,7 @@ or
 
 ## Exercise
 
-### Exercise 1d
+### Exercise 5a
 
 NumPy is famous for fast matrix algebra - e.g., matrix-matrix multiplications, diagonalizations, singular value decompositions, inversions, etc. Look at the ipython help for the NumPy matrix class;
 
@@ -80,7 +80,7 @@ Now, create a 2D matrix with values (2,0 ; 0,2). This should scale your vector b
 
 Next, while you can multiply a vector by a matrix, you cannot multiply a matrix by a vector. Verify that a python exception will be raised when you multiply the identity matrix by the vector.
 
-### Excerise 2d
+### Excerise 5b
 
 Let's look at how to use numpy to carry out a simple and oft-used linear algebra routine - matrix-matrix multiplications in order to rotate objects. The aim is to incorporate this into our triangle drawing code so that we can rotate our triangles. There's further detail [available at wikipedia](https://en.wikipedia.org/wiki/Rotation_matrix)
 
@@ -141,8 +141,8 @@ and draw() shouldn't change that much, but it might now look something like this
             vertexList.draw(pyglet.gl.GL_LINE_LOOP)  # draw
 
 if you are totally stuck, there are example scripts here:
-* [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/2d-drawTriangle.py)
-* [triangleClass.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/2d-triangleClass.py)
+* [5b/drawTriangle.py](5b/2d-drawTriangle.py)
+* [5b/triangleClass.py](5b/2d-triangleClass.py)
 
 ### if you are hungry for more
 
