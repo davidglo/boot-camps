@@ -14,7 +14,7 @@ Tuesday 16th (DRG)
 * 10:45 A simple live demo for debugging in PyCharm (DRG)
     * [this video is also a nice outline of how to debug in PyCharm](https://www.youtube.com/watch?v=BBPoInSOiOY)
 * 11:00 Learning more about Python
-    * [A Python Framework for Simple Game Mechanics](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/pyGlet-GameMechanics.md)
+    * [A Python Framework for Simple Game Mechanics](Python/I-pyGlet-GameMechanics.md)
     * Basic Python features
       * [containers, lists, and dictionaries](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/1_lists_and_dictionaries.md)
       * [functions & modules](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/Python/2_functions_and_modules.md)
@@ -29,7 +29,7 @@ Tuesday 16th (DRG)
 * 13:00 Lunch
 * 14:00 [Scipy and NumPy](Python/5_numpy.md)
 * 15:15 Coffee 
-* 15:30 [Experiment & Play: Use what you've learned to hack-your-own game mechanics](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/pyGlet-GameMechanics-II.md)
+* 15:30 [Experiment & Play: Use what you've learned to hack-your-own game mechanics](Python/II-pyGlet-GameMechanics.md)
 * 18:00 Finish 
 
 Wednesday 17th (REA, MOC, SA, DRG)
