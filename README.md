@@ -60,7 +60,7 @@ Thursday 18th (REA, MOC, SA, DRG)
 Friday 19th (REA, MOC, SA, DRG)
  
 * 10:00 - 11:00 guest lecture: Clare Macrae (developer @Cambridge Crystallographic Data Centre)
-    * Clare has made her presentation (available for download here)[presentations/ClareMacrae-slides.pptx]
+    * Clare has made her presentation [available for download here](presentations/ClareMacrae-slides.pptx)
 * 11:00 - 17:00 hackathon
 
 
