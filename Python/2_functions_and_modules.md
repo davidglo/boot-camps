@@ -224,7 +224,3 @@ Now if I run "colors.py" in PyCharm, I get the information printed.
 If instead I run my triangle drawing code in PyCharm, which imports colors.py as a module, the information is not printed. Have a go at including this code in your project, and verify for yourself that this is indeed the case.
 
 It is extremely good programming practice to write all of your scripts as if they were modules (and indeed to write all of your code as if they were part of a reusable library). This makes it really easy for you to pick up and reuse all of your code, preventing you from having to continually rewrite the same functionality over and over again.
-
-
-
-# [Previous](1_lists_and_dictionaries.md) [Next](3_documenting_code.md) 
