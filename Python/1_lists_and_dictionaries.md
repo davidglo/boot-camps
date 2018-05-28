@@ -353,7 +353,7 @@ Note that string.join has added a space between each letter. Using help() we can
     $ s
     'hello'
 
-Let's return to the simple line drawing program we looked at earlier. The script is available as [drawTriangle.py](https://github.com/davidglo/boot-camps/blob/2017-TMCS-software/drawTriangle.py). 
+Let's return to the simple line drawing program we looked at earlier, which we will use as fodder for some excercises. 
 
         # now we will calculate the list of vertices required to draw the triangle
         numberOfVertices = 3        # specify the number of vertices we need for the shape
